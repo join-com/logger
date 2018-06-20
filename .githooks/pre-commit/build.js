@@ -1,2 +1,2 @@
 #!/bin/bash
-yarn makepretty
+yarn makepretty && yarn tsc --noEmit && yarn lint
