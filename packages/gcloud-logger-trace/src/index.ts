@@ -21,5 +21,7 @@ const start = (req: expressLogger.Request) => {
 
 export const requestLogger = expressLogger.requestLogger(logger, start);
 export const traceMiddleware = trace.traceMiddleware(TRACE_CONTEXT_NAME);
-
+export const reportError = (e: Error) => {
+  logger.reportError(e);
+};
 export default logger;
