@@ -1,7 +1,7 @@
 import { Logger } from '../packages/gj-logger/src/Logger';
 import { NextFunction, Request, Response } from 'express';
 import * as onFinished from 'on-finished';
-import * as util from 'util';
+
 import * as trace from '../trace';
 
 const USE_JSON_FORMAT = process.env.NODE_ENV === 'production';
@@ -47,10 +47,3 @@ export const requestLogger = (
   }
   next();
 };
-
-export const reportError = (err: Error) => {
-  const fullError = util.inspect(err, { showHidden: false, depth: null });
-  logger.error(err.stack!, { fullError });
-};
-
-export default logger;

@@ -1,5 +1,6 @@
 import chalk from 'chalk';
 import * as os from 'os';
+import * as util from 'util';
 
 enum LevelNumber {
   DEFAULT = 0,
@@ -114,6 +115,11 @@ export class Logger {
     }
 
     this.print(level, this.formatMessage(level, messageText, payload));
+  }
+
+  public reportError(err: Error) {
+    const fullError = util.inspect(err, { showHidden: false, depth: null });
+    this.error(err.stack!, { fullError });
   }
 
   private stringify(message: any) {
