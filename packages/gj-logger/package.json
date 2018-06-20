@@ -1,0 +1,38 @@
+{
+  "name": "@join-com/gcloud-logger",
+  "version": "0.1.0",
+  "description": "gcloud simple logger",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepublish": "npm run build"
+  },
+  "repository": "https://github.com/join-com/gj-logger",
+  "author": "JOIN Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=8"
+  },
+  "homepage": "https://github.com/join-com/gj-logger",
+  "contributors": [
+    "Anton Versal <anton.versal@gmail.com>"
+  ],
+  "keywords": [
+    "gcloud",
+    "logger",
+    "google cloud platform",
+    "typescript",
+    "json"
+  ],
+  "files": [
+    "lib/"
+  ],
+  "devDependencies": {
+    "@types/node": "^10.3.4",
+    "typescript": "^2.9.2"
+  },
+  "dependencies": {
+    "chalk": "^2.4.1"
+  }
+}
