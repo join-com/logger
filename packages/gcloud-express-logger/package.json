@@ -1,0 +1,43 @@
+{
+  "name": "@join-com/gcloud-typeorm-logger",
+  "version": "0.1.0",
+  "description": "gcloud express request logger",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepublish": "yarn build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "https://github.com/join-com/logger",
+  "author": "JOIN Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=8"
+  },
+  "homepage": "https://github.com/join-com/logger/tree/master/packages/gcloud-typeorm-logger",
+  "contributors": [
+    "Anton Versal <anton.versal@gmail.com>"
+  ],
+  "keywords": [
+    "gcloud",
+    "express",
+    "logger",
+    "google cloud platform",
+    "typescript"
+  ],
+  "files": [
+    "lib/"
+  ],
+  "devDependencies": {
+    "@types/express": "^4.16.0",
+    "@types/on-finished": "^2.3.1",
+    "typescript": "^2.9.2"
+  },
+  "dependencies": {
+    "@join-com/gcloud-logger": "^0.1.2",
+    "on-finished": "^2.3.0"
+  }
+}
