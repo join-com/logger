@@ -1,7 +1,7 @@
 {
-  "name": "@join-com/gcloud-logger",
+  "name": "@join-com/node-trace",
   "version": "0.1.1",
-  "description": "gcloud simple logger",
+  "description": "node tracing library",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
@@ -17,25 +17,27 @@
   "engines": {
     "node": ">=8"
   },
-  "homepage": "https://github.com/join-com/logger/tree/master/packages/gcloud-logger",
+  "homepage": "https://github.com/join-com/logger/tree/master/packages/node-trace",
   "contributors": [
     "Anton Versal <anton.versal@gmail.com>"
   ],
   "keywords": [
-    "gcloud",
+    "trace",
     "logger",
-    "google cloud platform",
+    "node",
     "typescript",
-    "json"
+    "Async Hooks"
   ],
   "files": [
     "lib/"
   ],
   "devDependencies": {
+    "@types/express": "^4.16.0",
     "@types/node": "^10.3.4",
+    "@types/uuid": "^3.4.3",
     "typescript": "^2.9.2"
   },
   "dependencies": {
-    "chalk": "^2.4.1"
+    "uuid": "^3.2.1"
   }
 }
