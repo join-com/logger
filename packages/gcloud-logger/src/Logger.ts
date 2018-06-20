@@ -71,8 +71,8 @@ export class Logger {
   constructor(
     private readonly useJsonFormat: boolean,
     logLevelStarts?: string,
-    private readonly excludeKeys = ['password', 'token'],
     private readonly getTraceContext?: () => string,
+    private readonly excludeKeys = ['password', 'token'],
   ) {
     this.logLevelNumber = logLevel(logLevelStarts);
   }

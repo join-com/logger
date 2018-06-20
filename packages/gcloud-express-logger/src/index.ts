@@ -44,4 +44,5 @@ export const requestLogger = (
   next();
 };
 
+export { NextFunction, Request, Response } from 'express';
 export default requestLogger;
