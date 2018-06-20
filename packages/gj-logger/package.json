@@ -6,7 +6,7 @@
   "types": "./lib/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "prepublish": "npm run build"
+    "prepublish": "yarn build"
   },
   "repository": "https://github.com/join-com/gj-logger",
   "author": "JOIN Team",
