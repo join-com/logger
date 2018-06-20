@@ -8,6 +8,9 @@
     "build": "tsc",
     "prepublish": "yarn build"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": "https://github.com/join-com/gj-logger",
   "author": "JOIN Team",
   "license": "MIT",
