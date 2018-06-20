@@ -1,0 +1,41 @@
+{
+  "name": "@join-com/gcloud-typeorm-logger",
+  "version": "0.1.0",
+  "description": "gcloud typoeorm sql logger",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepublish": "yarn build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "https://github.com/join-com/logger",
+  "author": "JOIN Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=8"
+  },
+  "homepage": "https://github.com/join-com/logger/tree/master/packages/gcloud-typeorm-logger",
+  "contributors": [
+    "Anton Versal <anton.versal@gmail.com>"
+  ],
+  "keywords": [
+    "gcloud",
+    "typeorm",
+    "logger",
+    "google cloud platform",
+    "typescript",
+    "sql"
+  ],
+  "files": [
+    "lib/"
+  ],
+  "devDependencies": {
+    "typescript": "^2.9.2"
+  },
+  "dependencies": {
+    "@join-com/gcloud-logger": "^0.1.2"
+  }
+}
