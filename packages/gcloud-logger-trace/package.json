@@ -1,6 +1,6 @@
 {
   "name": "@join-com/gcloud-logger-trace",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "gcloud logger with tracing",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -40,7 +40,7 @@
     "@join-com/gcloud-express-logger": "^0.1.4",
     "@join-com/gcloud-logger": "^0.1.4",
     "@join-com/gcloud-typeorm-logger": "^0.1.4",
-    "@join-com/node-trace": "^0.1.2",
+    "@join-com/node-trace": "^0.1.5",
     "@types/node": "^10.3.4"
   }
 }
