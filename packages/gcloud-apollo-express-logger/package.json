@@ -20,7 +20,8 @@
   "homepage": "https://github.com/join-com/logger/tree/master/packages/gcloud-apollo-express-logger",
   "contributors": [
     "Anton Versal <anton.versal@gmail.com>",
-    "Antoine Iscaros <antoine.iscaros@join.com>"
+    "Antoine Iscaros <antoine.iscaros@join.com>",
+    "Tomasz Cichowicz"
   ],
   "keywords": [
     "gcloud",
