@@ -6,7 +6,9 @@
   "types": "./lib/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "prepublish": "yarn build"
+    "prepublish": "yarn test && yarn build",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "publishConfig": {
     "access": "public"
