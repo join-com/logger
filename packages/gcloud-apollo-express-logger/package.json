@@ -1,0 +1,48 @@
+{
+  "name": "@join-com/gcloud-apollo-express-logger",
+  "version": "0.1.0",
+  "description": "gcloud request logger",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepublish": "yarn build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "https://github.com/join-com/logger",
+  "author": "JOIN Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=8"
+  },
+  "homepage": "https://github.com/join-com/logger/tree/master/packages/gcloud-apollo-express-logger",
+  "contributors": [
+    "Anton Versal <anton.versal@gmail.com>",
+    "Antoine Iscaros <antoine.iscaros@join.com>"
+  ],
+  "keywords": [
+    "gcloud",
+    "graphql",
+    "express",
+    "logger",
+    "google cloud platform",
+    "typescript"
+  ],
+  "files": [
+    "lib/"
+  ],
+  "devDependencies": {
+    "typescript": "^3.6.3"
+  },
+  "dependencies": {
+    "@join-com/gcloud-logger": "^0.1.4",
+    "@join-com/gcloud-logger-trace": "^0.1.5",
+    "@join-com/node-trace": "^0.1.5",
+    "@join-private/base-errors": "^1.1.6",
+    "apollo-server-express": "^2.9.3",
+    "graphql": "^14.5.4",
+    "type-graphql": "^0.17.5"
+  }
+}
