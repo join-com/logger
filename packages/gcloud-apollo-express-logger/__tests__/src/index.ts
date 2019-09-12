@@ -18,6 +18,27 @@ describe('formatError', () => {
     const formattedError = formatError(graphqlError);
     expect(formattedError).toMatchSnapshot();
   });
+  it('formats error object with unkown error', () => {
+    const extensions = {
+      exception: {},
+    };
+    const _ = undefined;
+    const graphqlError = new GraphQLError('', _, _, _, _, _, extensions);
+    const formattedError = formatError(graphqlError);
+    expect(formattedError.extensions).toMatchSnapshot();
+  });
+  it('pick error fields', () => {
+    const extensions = {
+      exception: {
+        code: 400,
+        secret: 'secret1',
+      },
+    };
+    const _ = undefined;
+    const graphqlError = new GraphQLError('', _, _, _, _, _, extensions);
+    const formattedError = formatError(graphqlError, ['code']);
+    expect(formattedError.extensions).toMatchSnapshot();
+  });
 });
 
 describe('errorLoggingExtension', () => {

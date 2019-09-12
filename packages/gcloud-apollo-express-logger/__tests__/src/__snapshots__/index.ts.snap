@@ -1,3 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`formatError formats error object 1`] = `[GraphQLError: message]`;
+
+exports[`formatError formats error object with unkown error 1`] = `
+Object {
+  "exception": Object {
+    "code": 500,
+    "message": "Something wrong",
+  },
+}
+`;
+
+exports[`formatError pick error fields 1`] = `
+Object {
+  "exception": Object {
+    "code": 400,
+  },
+}
+`;
