@@ -1,7 +1,7 @@
 import logger, { Level } from '@join-com/gcloud-logger-trace';
 import * as trace from '@join-com/node-trace';
 import { ClassValidationError } from '@join-private/base-errors';
-import { GraphQLExtension } from 'apollo-server-express';
+import { GraphQLExtension } from 'apollo-server-core';
 import { GraphQLError } from 'graphql';
 import { ForbiddenError, Maybe } from 'type-graphql';
 
