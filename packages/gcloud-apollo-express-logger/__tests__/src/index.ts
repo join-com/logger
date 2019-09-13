@@ -1,4 +1,4 @@
-import { formatError, errorLoggingExtension } from '../../src/index';
+import { errorLoggingExtension, errorFormatter } from '../../src/index';
 import { ApolloServer } from 'apollo-server-express';
 import express from 'express';
 import request from 'supertest';
@@ -12,11 +12,45 @@ jest.mock('@join-com/node-trace', () => ({
   start: jest.fn(),
 }));
 
-describe('formatError', () => {
+describe('errorFormatter', () => {
   it('formats error object', () => {
     const graphqlError = new GraphQLError('message');
-    const formattedError = formatError(graphqlError);
-    expect(formattedError).toMatchSnapshot();
+    const formattedError = errorFormatter()(graphqlError);
+    expect(formattedError.message).toEqual('message');
+  });
+  it('formats error object with unkown error', () => {
+    const extensions = {
+      exception: {},
+    };
+    const _ = undefined;
+    const graphqlError = new GraphQLError('', _, _, _, _, _, extensions);
+    const formattedError = errorFormatter()(graphqlError);
+    expect(formattedError.extensions).toEqual({
+      exception: { code: 500, message: 'Server error' },
+    });
+  });
+
+  const extensions = {
+    exception: {
+      code: 400,
+      secret: 'secret1',
+    },
+  };
+  const _ = undefined;
+  it('whilelist > picks specified error fields', () => {
+    const graphqlError = new GraphQLError('', _, _, _, _, _, extensions);
+    const formattedError = errorFormatter({ whiteList: ['code'] })(
+      graphqlError,
+    );
+    expect(formattedError.extensions).toEqual({ exception: { code: 400 } });
+  });
+
+  it('blackList > omits specified error fields', () => {
+    const graphqlError = new GraphQLError('', _, _, _, _, _, extensions);
+    const formattedError = errorFormatter({ blackList: ['secret'] })(
+      graphqlError,
+    );
+    expect(formattedError.extensions).toEqual({ exception: { code: 400 } });
   });
 });
 
@@ -46,6 +80,7 @@ describe('errorLoggingExtension', () => {
       .set(DEFAULT_TRACE_CONTEXT_NAME, 'someTraceId')
       .send({ query })
       .expect(400);
+
     expect(start).toHaveBeenCalledWith('someTraceId');
   });
 });
