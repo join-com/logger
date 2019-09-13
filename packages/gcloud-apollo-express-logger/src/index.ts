@@ -14,12 +14,12 @@ export const formatError = (error: GraphQLError, whiteList?: string[]) => {
     } else if (!exception.code) {
       exception = {
         code: 500,
-        message: 'Something wrong',
+        message: 'Server error',
       };
     }
-    error.extensions.exception = whiteList
-      ? pick(exception, whiteList)
-      : exception;
+
+    exception = whiteList ? pick(exception, whiteList) : exception;
+    error.extensions.exception = exception;
   }
 
   return error;

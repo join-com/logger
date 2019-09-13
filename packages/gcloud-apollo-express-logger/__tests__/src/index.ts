@@ -27,7 +27,7 @@ describe('formatError', () => {
     const formattedError = formatError(graphqlError);
     expect(formattedError.extensions).toMatchSnapshot();
   });
-  it('pick error fields', () => {
+  fit('picks error fields', () => {
     const extensions = {
       exception: {
         code: 400,
@@ -37,7 +37,7 @@ describe('formatError', () => {
     const _ = undefined;
     const graphqlError = new GraphQLError('', _, _, _, _, _, extensions);
     const formattedError = formatError(graphqlError, ['code']);
-    expect(formattedError.extensions).toMatchSnapshot();
+    expect(formattedError.extensions).toEqual({ exception: { code: 400 } });
   });
 });
 

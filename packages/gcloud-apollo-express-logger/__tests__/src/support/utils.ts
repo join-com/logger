@@ -1,7 +1,7 @@
 import { pick } from '../../../support/utils';
 
 describe('pick', () => {
-  it('pick provided keys', () => {
+  it('picks provided keys', () => {
     const object = {
       1: 1,
       key: 'key',
