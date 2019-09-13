@@ -29,16 +29,23 @@ describe('formatError', () => {
       exception: { code: 500, message: 'Server error' },
     });
   });
-  it('picks error fields', () => {
-    const extensions = {
-      exception: {
-        code: 400,
-        secret: 'secret1',
-      },
-    };
-    const _ = undefined;
+
+  const extensions = {
+    exception: {
+      code: 400,
+      secret: 'secret1',
+    },
+  };
+  const _ = undefined;
+  it('whilelist > picks specified error fields', () => {
     const graphqlError = new GraphQLError('', _, _, _, _, _, extensions);
-    const formattedError = formatError(graphqlError, ['code']);
+    const formattedError = formatError(graphqlError, { whiteList: ['code'] });
+    expect(formattedError.extensions).toEqual({ exception: { code: 400 } });
+  });
+
+  it('blackList > omits specified error fields', () => {
+    const graphqlError = new GraphQLError('', _, _, _, _, _, extensions);
+    const formattedError = formatError(graphqlError, { blackList: ['secret'] });
     expect(formattedError.extensions).toEqual({ exception: { code: 400 } });
   });
 });

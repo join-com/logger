@@ -1,5 +1,10 @@
-export const pick = (obj: any, keys: any[]) => {
-  return keys
-    .map(k => (k in obj ? { [k]: obj[k] } : {}))
-    .reduce((acc, cur) => Object.assign(acc, cur), {});
+export const pick = (obj: any, keys: string[]) => {
+  return Object.entries(obj)
+    .filter(([key]) => keys.includes(key))
+    .reduce((obj, [key, val]) => Object.assign(obj, { [key]: val }), {});
+};
+export const omit = (obj: any, keys: string[]) => {
+  return Object.entries(obj)
+    .filter(([key]) => !keys.includes(key))
+    .reduce((obj, [key, val]) => Object.assign(obj, { [key]: val }), {});
 };

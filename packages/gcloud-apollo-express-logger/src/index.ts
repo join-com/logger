@@ -4,9 +4,17 @@ import { ClassValidationError } from '@join-private/base-errors';
 import { GraphQLExtension } from 'apollo-server-core';
 import { GraphQLError } from 'graphql';
 import { ForbiddenError, Maybe } from 'type-graphql';
-import { pick } from '../support/utils';
+import { pick, omit } from '../support/utils';
 
-export const formatError = (error: GraphQLError, whiteList?: string[]) => {
+interface IFormatterOptions {
+  whiteList?: string[];
+  blackList?: string[];
+}
+
+export const formatError = (
+  error: GraphQLError,
+  options?: IFormatterOptions,
+) => {
   if (error.extensions) {
     let exception = error.extensions.exception;
     if (exception && exception.validationErrors) {
@@ -17,8 +25,11 @@ export const formatError = (error: GraphQLError, whiteList?: string[]) => {
         message: 'Server error',
       };
     }
-
-    exception = whiteList ? pick(exception, whiteList) : exception;
+    if (options) {
+      const { whiteList, blackList } = options;
+      exception = whiteList ? pick(exception, whiteList) : exception;
+      exception = blackList ? omit(exception, blackList) : exception;
+    }
     error.extensions.exception = exception;
   }
 
