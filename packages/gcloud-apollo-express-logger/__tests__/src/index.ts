@@ -16,7 +16,7 @@ describe('formatError', () => {
   it('formats error object', () => {
     const graphqlError = new GraphQLError('message');
     const formattedError = formatError(graphqlError);
-    expect(formattedError).toMatchSnapshot();
+    expect(formattedError.message).toEqual('message');
   });
   it('formats error object with unkown error', () => {
     const extensions = {
@@ -25,9 +25,11 @@ describe('formatError', () => {
     const _ = undefined;
     const graphqlError = new GraphQLError('', _, _, _, _, _, extensions);
     const formattedError = formatError(graphqlError);
-    expect(formattedError.extensions).toMatchSnapshot();
+    expect(formattedError.extensions).toEqual({
+      exception: { code: 500, message: 'Server error' },
+    });
   });
-  fit('picks error fields', () => {
+  it('picks error fields', () => {
     const extensions = {
       exception: {
         code: 400,
@@ -67,6 +69,7 @@ describe('errorLoggingExtension', () => {
       .set(DEFAULT_TRACE_CONTEXT_NAME, 'someTraceId')
       .send({ query })
       .expect(400);
+
     expect(start).toHaveBeenCalledWith('someTraceId');
   });
 });
