@@ -11,9 +11,8 @@ interface IFormatterOptions {
   blackList?: string[];
 }
 
-export const formatError = (
+export const errorFormatter = (options?: IFormatterOptions) => (
   error: GraphQLError,
-  options?: IFormatterOptions,
 ) => {
   if (error.extensions) {
     let exception = error.extensions.exception;
