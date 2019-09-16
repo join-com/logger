@@ -18,12 +18,10 @@ describe('errorFormatter', () => {
     const formattedError = errorFormatter()(graphqlError);
     expect(formattedError.message).toEqual('message');
   });
+
   it('formats error object with unkown error', () => {
-    const extensions = {
-      exception: {},
-    };
     const _ = undefined;
-    const graphqlError = new GraphQLError('', _, _, _, _, _, extensions);
+    const graphqlError = new GraphQLError('', _, _, _, _, _, {});
     const formattedError = errorFormatter()(graphqlError);
     expect(formattedError.extensions).toEqual({
       exception: { code: 500, message: 'Server error' },

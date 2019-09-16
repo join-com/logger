@@ -18,7 +18,7 @@ export const errorFormatter = (options?: IFormatterOptions) => (
     let exception = error.extensions.exception;
     if (exception && exception.validationErrors) {
       exception = new ClassValidationError(exception.validationErrors);
-    } else if (!exception.code) {
+    } else if (exception && !exception.code) {
       exception = {
         code: 500,
         message: 'Server error',
