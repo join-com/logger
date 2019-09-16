@@ -24,7 +24,7 @@ export const errorFormatter = (options?: IFormatterOptions) => (
         message: 'Server error',
       };
     }
-    if (options) {
+    if (options && exception) {
       const { whiteList, blackList } = options;
       exception = whiteList ? pick(exception, whiteList) : exception;
       exception = blackList ? omit(exception, blackList) : exception;
