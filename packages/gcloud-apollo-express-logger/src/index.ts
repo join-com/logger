@@ -11,6 +11,10 @@ interface IFormatterOptions {
   blackList?: string[];
 }
 
+interface IException {
+  code: number;
+}
+
 export const errorFormatter = (options?: IFormatterOptions) => (
   error: GraphQLError,
 ) => {
@@ -18,7 +22,7 @@ export const errorFormatter = (options?: IFormatterOptions) => (
     let exception = error.extensions.exception;
     if (exception && exception.validationErrors) {
       exception = new ClassValidationError(exception.validationErrors);
-    } else if (exception && !exception.code) {
+    } else if (isUnknownError(exception)) {
       exception = {
         code: 500,
         message: 'Server error',
@@ -34,6 +38,9 @@ export const errorFormatter = (options?: IFormatterOptions) => (
 
   return error;
 };
+
+const isUnknownError = (exception: IException) =>
+  Boolean(!exception || (exception && !exception.code));
 
 const isAboveWarningLevel = (originalError: Maybe<Error>): boolean =>
   !(originalError instanceof ForbiddenError);
