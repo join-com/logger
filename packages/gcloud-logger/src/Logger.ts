@@ -72,7 +72,12 @@ export class Logger {
     private readonly useJsonFormat: boolean,
     logLevelStarts?: string,
     private readonly getTraceContext?: () => string,
-    private readonly excludeKeys = ['password', 'token'],
+    private readonly excludeKeys = [
+      'password',
+      'token',
+      'newPassword',
+      'oldPassword',
+    ],
   ) {
     this.logLevelNumber = logLevel(logLevelStarts);
   }
