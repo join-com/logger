@@ -1,6 +1,6 @@
 {
   "name": "@join-com/gcloud-express-logger",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "description": "gcloud express request logger",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -37,7 +37,7 @@
     "typescript": "^2.9.2"
   },
   "dependencies": {
-    "@join-com/gcloud-logger": "^0.1.4",
+    "@join-com/gcloud-logger": "^0.1.6",
     "on-finished": "^2.3.0"
   }
 }
