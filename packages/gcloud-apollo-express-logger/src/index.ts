@@ -12,7 +12,7 @@ interface IFormatterOptions {
 }
 
 interface IException {
-  code: number;
+  code?: number;
 }
 
 export const errorFormatter = (options?: IFormatterOptions) => (
@@ -39,7 +39,7 @@ export const errorFormatter = (options?: IFormatterOptions) => (
   return error;
 };
 
-const isUnknownError = (exception: IException) =>
+const isUnknownError = (exception: IException | undefined) =>
   Boolean(!exception || (exception && !exception.code));
 
 const isAboveWarningLevel = (originalError: Maybe<Error>): boolean =>
