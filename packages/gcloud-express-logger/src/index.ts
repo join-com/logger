@@ -11,6 +11,7 @@ const requestLogMessage = (req: Request, res: Response, ms: number) => ({
     userAgent: req.headers['user-agent'],
     referer: req.headers.referer || req.headers.referrer,
     latency: `${ms.toFixed(3)}ms`,
+    path: req.route.path,
   },
   query: req.query,
   reqBody: req.body,
