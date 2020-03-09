@@ -6,7 +6,7 @@
   "types": "./lib/src/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "prepublish": "yarn test && yarn build",
+    "prepublish": "yarn build",
     "test": "jest",
     "test:watch": "jest --watch"
   },
@@ -58,5 +58,6 @@
     "@join-com/gcloud-logger-trace": "^0.1.9",
     "@join-com/node-trace": "^0.1.5",
     "@join-private/base-errors": "^1.1.6"
-  }
+  },
+  "gitHead": "b6fb56c6f94d99b5ae740d93cf025956ae426ee8"
 }

@@ -39,5 +39,6 @@
   "dependencies": {
     "@join-com/gcloud-logger": "^0.1.9",
     "on-finished": "^2.3.0"
-  }
+  },
+  "gitHead": "b6fb56c6f94d99b5ae740d93cf025956ae426ee8"
 }
