@@ -2,28 +2,32 @@
 # yarn lockfile v1
 
 
-"@join-com/gcloud-express-logger@^0.1.3-1":
-  version "0.1.3-1"
-  resolved "https://registry.npmjs.org/@join-com/gcloud-express-logger/-/gcloud-express-logger-0.1.3-1.tgz#44ff0cae85e321bae692263a4c2bc3311b741ed0"
+"@join-com/gcloud-express-logger@^0.1.7":
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/@join-com/gcloud-express-logger/-/gcloud-express-logger-0.1.7.tgz#9a831da99e35027e897fd5ede5f5f9a5fa19f1fa"
+  integrity sha512-AN7i4Tdj7HLxY3ehYbvBXFmjX8zV2022czw8QaMGrL0A6//Q0vVj86pFLyZ2PX/af8ikV4N+l7bBwmwO9b7vtw==
   dependencies:
-    "@join-com/gcloud-logger" "^0.1.3-1"
+    "@join-com/gcloud-logger" "^0.1.6"
     on-finished "^2.3.0"
 
-"@join-com/gcloud-logger@^0.1.3-1":
-  version "0.1.3-1"
-  resolved "https://registry.npmjs.org/@join-com/gcloud-logger/-/gcloud-logger-0.1.3-1.tgz#6aec3adeae9072f86802e6d4a5cf69b2cf548746"
+"@join-com/gcloud-logger@^0.1.6":
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@join-com/gcloud-logger/-/gcloud-logger-0.1.6.tgz#f1033c69192d98a7e2a736a8c17c738cba96c5e6"
+  integrity sha512-eDh4k/vkbKnfsIjoe4IRc7vlLv4rmbxYsNSJXisgzcKsafBKFc3ErnYwQNfgV+9T61dde0wh58huvxpuxMa2Ig==
   dependencies:
     chalk "^2.4.1"
 
-"@join-com/gcloud-typeorm-logger@^0.1.3-1":
-  version "0.1.3-1"
-  resolved "https://registry.npmjs.org/@join-com/gcloud-typeorm-logger/-/gcloud-typeorm-logger-0.1.3-1.tgz#eff03598b21008d96abd43e69a147f34db761396"
+"@join-com/gcloud-typeorm-logger@^0.1.6":
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@join-com/gcloud-typeorm-logger/-/gcloud-typeorm-logger-0.1.6.tgz#d9709120fabde91a21472cf0571b0e405771338b"
+  integrity sha512-UcZ2Niku/nWHKxNyi0IZ7NjQYTNjs9gzD2zwgGJcEBjr9hWZYR2D2rLAf+U5eAu4X0l0eoCv5v80ew5LlTkPIw==
   dependencies:
-    "@join-com/gcloud-logger" "^0.1.3-1"
+    "@join-com/gcloud-logger" "^0.1.6"
 
-"@join-com/node-trace@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.npmjs.org/@join-com/node-trace/-/node-trace-0.1.2.tgz#6db6c4be715e8d611a99ebd6d4697066d48d5c35"
+"@join-com/node-trace@^0.1.5":
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/@join-com/node-trace/-/node-trace-0.1.5.tgz#12690448980724466fd92eb3e84e557352acd508"
+  integrity sha1-EmkESJgHJEZv2S6z6E5Vc1Ks1Qg=
   dependencies:
     uuid "^3.2.1"
 
