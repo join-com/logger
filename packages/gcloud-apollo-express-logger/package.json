@@ -1,6 +1,6 @@
 {
   "name": "@join-com/gcloud-apollo-express-logger",
-  "version": "0.1.10",
+  "version": "0.1.8",
   "description": "gcloud request logger",
   "main": "./lib/src/index.js",
   "types": "./lib/src/index.d.ts",
@@ -54,9 +54,9 @@
     "typescript": "^3.6.3"
   },
   "dependencies": {
-    "@join-com/gcloud-logger": "^0.1.10",
-    "@join-com/gcloud-logger-trace": "^0.1.10",
-    "@join-com/node-trace": "^0.1.5",
+    "@join-com/gcloud-logger": "^0.1.8",
+    "@join-com/gcloud-logger-trace": "^0.1.8",
+    "@join-com/node-trace": "^0.1.8",
     "@join-private/base-errors": "^1.1.6"
   },
   "gitHead": "b6fb56c6f94d99b5ae740d93cf025956ae426ee8"
