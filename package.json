@@ -4,7 +4,7 @@
   "description": "gcloud logger from JOIN",
   "main": "index.ts",
   "repository": "git@github.com:join-com/gj-logger.git",
-  "author": "Anton Versal <ant.ver@gmail.com>",
+  "author": "JOIN Solutions",
   "license": "MIT",
   "scripts": {
     "makepretty": "prettier --write '**/*.ts'",
@@ -29,9 +29,8 @@
     "lint-staged": "^10.0.8",
     "prettier": "^1.19.1",
     "tslint": "^6.0.0",
+    "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.8.3"
   },
-  "dependencies": {
-    "tslint-config-prettier": "^1.18.0"
-  }
+  "dependencies": {}
 }
