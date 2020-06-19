@@ -131,11 +131,11 @@ export class Logger {
 
   private stringify(message: any) {
     const excludeFn = (key: string, value: string) => {
-      if (this.excludeKeys.includes(key)) {
+      if (this.excludeKeys.indexOf(key) !== -1) {
         return '[FILTERED]';
       }
       if (typeof value === 'object') {
-        JSON.stringify(value, excludeFn);
+        return JSON.stringify(value, excludeFn);
       }
       return value;
     };
