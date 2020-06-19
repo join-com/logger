@@ -77,6 +77,8 @@ export class Logger {
       'token',
       'newPassword',
       'oldPassword',
+      'file',
+      'resume',
     ],
   ) {
     this.logLevelNumber = logLevel(logLevelStarts);
@@ -129,8 +131,11 @@ export class Logger {
 
   private stringify(message: any) {
     const excludeFn = (key: string, value: string) => {
-      if (this.excludeKeys.indexOf(key) !== -1) {
+      if (this.excludeKeys.includes(key)) {
         return '[FILTERED]';
+      }
+      if (typeof value === 'object') {
+        JSON.stringify(value, excludeFn);
       }
       return value;
     };
