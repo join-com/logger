@@ -22,7 +22,7 @@ const requestLogMessage = (req: Request, res: Response, ms: number) => ({
 const filterBody = (body: any) => {
   Object.keys(body).forEach(key => {
     if (EXCLUDED_KEYS.indexOf(key) !== -1) {
-      return '[EXCLUDED]';
+      body[key] = '[EXCLUDED]';
     }
 
     if (typeof body[key] === 'object') {
