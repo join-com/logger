@@ -20,16 +20,17 @@ const requestLogMessage = (req: Request, res: Response, ms: number) => ({
 });
 
 const filterBody = (body: any) => {
-  Object.keys(body).forEach(key => {
+  const loggedBody = { ...body };
+  Object.keys(loggedBody).forEach(key => {
     if (EXCLUDED_KEYS.indexOf(key) !== -1) {
-      body[key] = '[EXCLUDED]';
+      loggedBody[key] = '[EXCLUDED]';
     }
 
-    if (typeof body[key] === 'object') {
-      filterBody(body[key]);
+    if (typeof loggedBody[key] === 'object') {
+      filterBody(loggedBody[key]);
     }
   });
-  return body;
+  return loggedBody;
 };
 
 export const requestLogger = (
