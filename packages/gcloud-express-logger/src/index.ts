@@ -2,6 +2,7 @@ import gcloudLogger, { Logger } from '@join-com/gcloud-logger';
 import { NextFunction, Request, Response } from 'express';
 import onFinished from 'on-finished';
 
+const EXCLUDED_KEYS = ['file', 'resume'];
 const requestLogMessage = (req: Request, res: Response, ms: number) => ({
   httpRequest: {
     remoteIp: req.ip,
@@ -14,9 +15,22 @@ const requestLogMessage = (req: Request, res: Response, ms: number) => ({
     path: req.route && req.route.path,
   },
   query: req.query,
-  reqBody: req.body,
+  reqBody: filterBody(req.body),
   requestTime: ms,
 });
+
+const filterBody = (body: any) => {
+  Object.keys(body).forEach(key => {
+    if (EXCLUDED_KEYS.indexOf(key) !== -1) {
+      return '[EXCLUDED]';
+    }
+
+    if (typeof body[key] === 'object') {
+      filterBody(body[key]);
+    }
+  });
+  return body;
+};
 
 export const requestLogger = (
   logger: Logger = gcloudLogger,
