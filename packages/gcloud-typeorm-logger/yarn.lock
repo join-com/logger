@@ -2,9 +2,10 @@
 # yarn lockfile v1
 
 
-"@join-com/gcloud-logger@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.npmjs.org/@join-com/gcloud-logger/-/gcloud-logger-0.1.2.tgz#620e4ad847a6ec432964b25892834c2ad3a57919"
+"@join-com/gcloud-logger@^0.1.12":
+  version "0.1.12"
+  resolved "https://registry.yarnpkg.com/@join-com/gcloud-logger/-/gcloud-logger-0.1.12.tgz#8c8da0cf96193057079131be8f093b3d72a295a4"
+  integrity sha512-RWLw0HRXkCrM2UhXILgSXmZRovOezBRi2nDx9+4Lz+zRDszSjulZ3rfY1vcKQ8Sx8JGKRPzqh2GKe9O3adO4uw==
   dependencies:
     chalk "^2.4.1"
 
