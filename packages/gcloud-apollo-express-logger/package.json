@@ -57,7 +57,7 @@
     "@join-com/gcloud-logger": "^0.1.12",
     "@join-com/gcloud-logger-trace": "^0.1.12",
     "@join-com/node-trace": "^0.1.8",
-    "@join-private/base-errors": "^1.1.6"
+    "@join-private/base-errors": "^1.1.9"
   },
   "gitHead": "b6fb56c6f94d99b5ae740d93cf025956ae426ee8"
 }

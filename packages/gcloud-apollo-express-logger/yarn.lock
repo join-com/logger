@@ -344,10 +344,10 @@
   dependencies:
     uuid "^3.2.1"
 
-"@join-private/base-errors@^1.1.6":
-  version "1.1.6"
-  resolved "https://registry.yarnpkg.com/@join-private/base-errors/-/base-errors-1.1.6.tgz#eb56a6ccba2f51286c373eb43ad1d1ed0bf020bb"
-  integrity sha512-iQgq5XFlJqls2CyOaJW2qKk2WMaH4XvNi2zjidrl6USLwA5aKiWecQl2SjltoHBohaN4Eps///c2aYLBHCJsjA==
+"@join-private/base-errors@^1.1.9":
+  version "1.1.9"
+  resolved "https://registry.yarnpkg.com/@join-private/base-errors/-/base-errors-1.1.9.tgz#9e3e1f8359b95ff2105d6dc80eaa02381635a86d"
+  integrity sha512-Hle7micZV33bKOIt5ZxkPk/kg33Jwrv0NrJBKPkZ3XYeF5S83vIEu+Y5TNfoSCc/JhaM+uD3NftivA6JfvWp2A==
 
 "@protobufjs/aspromise@^1.1.1", "@protobufjs/aspromise@^1.1.2":
   version "1.1.2"
