@@ -128,13 +128,25 @@ export class Logger {
   }
 
   private stringify(message: any) {
-    const excludeFn = (key: string, value: string) => {
-      if (this.excludeKeys.indexOf(key) !== -1) {
-        return '[FILTERED]';
-      }
-      return value;
+    const getReplacer = () => {
+      const seen = new WeakSet();
+      return (key: string, value: any) => {
+        // exclude sensitive values
+        if (this.excludeKeys.indexOf(key) !== -1) {
+          return '[FILTERED]';
+        }
+        // exclude circular references
+        if (typeof value === 'object' && value !== null) {
+          if (seen.has(value)) {
+            return '[CIRCULAR REFERENCE]';
+          }
+          seen.add(value);
+        }
+        // simply return otherwise
+        return value;
+      };
     };
-    return JSON.stringify(message, excludeFn);
+    return JSON.stringify(message, getReplacer());
   }
 
   private formatMessage(
