@@ -1,6 +1,6 @@
 {
   "name": "@join-com/gcloud-typeorm-logger",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "gcloud typoeorm sql logger",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -36,7 +36,7 @@
     "typescript": "^2.9.2"
   },
   "dependencies": {
-    "@join-com/gcloud-logger": "^0.1.12"
+    "@join-com/gcloud-logger": "^0.1.14"
   },
   "gitHead": "b6fb56c6f94d99b5ae740d93cf025956ae426ee8"
 }
