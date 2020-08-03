@@ -65,6 +65,10 @@ const logLevel = (level: string | undefined) => {
   }
 };
 
+interface IObject {
+  [key: string]: any;
+}
+
 export class Logger {
   private readonly logLevelNumber: LevelNumber;
 
@@ -127,28 +131,6 @@ export class Logger {
     this.error(err.stack!, { fullError });
   }
 
-  private stringify(message: any) {
-    const getReplacer = () => {
-      const seen = new WeakSet();
-      return (key: string, value: any) => {
-        // exclude sensitive values
-        if (this.excludeKeys.indexOf(key) !== -1) {
-          return '[FILTERED]';
-        }
-        // exclude circular references
-        if (typeof value === 'object' && value !== null) {
-          if (seen.has(value)) {
-            return '[CIRCULAR REFERENCE]';
-          }
-          seen.add(value);
-        }
-        // simply return otherwise
-        return value;
-      };
-    };
-    return JSON.stringify(message, getReplacer());
-  }
-
   private formatMessage(
     level: Level,
     messageText: string,
@@ -178,5 +160,45 @@ export class Logger {
     } else {
       process.stdout.write(msg);
     }
+  }
+
+  private stringify(message: any) {
+    // https://gist.github.com/saitonakamura/d51aa672c929e35cc81fa5a0e31f12a9
+    const replaceCircular = (obj: any, alreadySeen = new WeakSet()): any => {
+      switch (typeof obj) {
+        case 'object':
+          if (!obj) return obj;
+          if (alreadySeen.has(obj)) {
+            return '[CIRCULAR]';
+          }
+          alreadySeen.add(obj);
+
+          if (Array.isArray(obj)) {
+            return obj.map(item => replaceCircular(item, alreadySeen));
+          }
+
+          const newObj: IObject = {};
+          Object.keys(obj).forEach(key => {
+            const val = replaceCircular(obj[key], alreadySeen);
+            newObj[key] = val;
+          });
+
+          alreadySeen.delete(obj);
+          return newObj;
+        default:
+          return obj;
+      }
+    };
+
+    const excludeSensitive = (key: string, value: any) => {
+      // exclude sensitive values
+      if (this.excludeKeys.indexOf(key) !== -1) {
+        return '[FILTERED]';
+      }
+      // simply return otherwise
+      return value;
+    };
+
+    return JSON.stringify(replaceCircular(message), excludeSensitive);
   }
 }
