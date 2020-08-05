@@ -51,8 +51,8 @@ describe('errorFormatter', () => {
     expect(formattedError.extensions).toEqual({
       code: 'UNAUTHENTICATED',
       exception: {
-        code: 500,
-        message: 'Server error',
+        code: 401,
+        message: 'Authorization error',
       },
     });
   });
