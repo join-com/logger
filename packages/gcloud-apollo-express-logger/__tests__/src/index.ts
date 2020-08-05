@@ -1,5 +1,9 @@
 import { errorLoggingExtension, errorFormatter } from '../../src/index';
-import { ApolloServer } from 'apollo-server-express';
+import {
+  ApolloServer,
+  AuthenticationError,
+  ForbiddenError,
+} from 'apollo-server-express';
 import express from 'express';
 import request from 'supertest';
 import { GraphQLError } from 'graphql';
@@ -25,6 +29,30 @@ describe('errorFormatter', () => {
     const formattedError = errorFormatter()(graphqlError);
     expect(formattedError.extensions).toEqual({
       exception: { code: 500, message: 'Server error' },
+    });
+  });
+
+  it('formats ForbiddenError', () => {
+    const forbiddenError = new ForbiddenError('Forbidden');
+    const formattedError = errorFormatter()(forbiddenError);
+    expect(formattedError.extensions).toEqual({
+      code: 'FORBIDDEN',
+      exception: {
+        code: 403,
+        message: 'Forbidden error',
+      },
+    });
+  });
+
+  it('formats AuthenticationError', () => {
+    const authenticationError = new AuthenticationError('Unauthenticated');
+    const formattedError = errorFormatter()(authenticationError);
+    expect(formattedError.extensions).toEqual({
+      code: 'UNAUTHENTICATED',
+      exception: {
+        code: 401,
+        message: 'Authentication error',
+      },
     });
   });
 
