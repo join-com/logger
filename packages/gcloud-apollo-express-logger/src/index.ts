@@ -20,8 +20,18 @@ export const errorFormatter = (options?: IFormatterOptions) => (
 ) => {
   if (error.extensions) {
     let exception = error.extensions.exception;
-    if (exception && exception.validationErrors) {
+    if (exception?.validationErrors) {
       exception = new ClassValidationError(exception.validationErrors);
+    } else if (isAuthorizationError(error)) {
+      exception = {
+        code: 401,
+        message: 'Authorization error',
+      };
+    } else if (isForbiddenError(error)) {
+      exception = {
+        code: 403,
+        message: 'Forbidden error',
+      };
     } else if (isUnknownError(exception)) {
       exception = {
         code: 500,
@@ -41,6 +51,12 @@ export const errorFormatter = (options?: IFormatterOptions) => (
 
 const isUnknownError = (exception: IException | undefined) =>
   Boolean(!exception || (exception && !exception.code));
+
+const isAuthorizationError = (error: GraphQLError) =>
+  Boolean(error.name === 'UnauthorizedError');
+
+const isForbiddenError = (error: GraphQLError) =>
+  Boolean(error.name === 'ForbiddenError');
 
 const isAboveWarningLevel = (originalError: Maybe<Error>): boolean =>
   !(originalError instanceof ForbiddenError);
