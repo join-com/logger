@@ -4,8 +4,6 @@ import { GraphQLExtension } from 'apollo-server-core';
 import { GraphQLError } from 'graphql';
 import { ForbiddenError, Maybe } from 'type-graphql';
 
-export default errorLoggingExtension;
-
 const isAboveWarningLevel = (originalError: Maybe<Error>): boolean =>
   !(originalError instanceof ForbiddenError);
 

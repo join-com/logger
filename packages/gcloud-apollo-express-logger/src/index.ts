@@ -1,2 +1,2 @@
-export { errorLoggingExtension } from './errorLoggingExtension';
-export { errorFormatter } from './errorFormatter';
+export * from './errorLoggingExtension';
+export * from './errorFormatter';

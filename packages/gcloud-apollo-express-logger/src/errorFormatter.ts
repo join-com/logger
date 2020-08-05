@@ -18,7 +18,7 @@ export const errorFormatter = (options?: IFormatterOptions) => (
     let exception = error.extensions.exception;
     if (exception?.validationErrors) {
       exception = new ClassValidationError(exception.validationErrors);
-    } else if (isAuthorizationError(error)) {
+    } else if (isAuthenticationError(error)) {
       exception = {
         code: 401,
         message: 'Authentication error',
@@ -48,7 +48,7 @@ export const errorFormatter = (options?: IFormatterOptions) => (
 const isUnknownError = (exception: IException | undefined) =>
   Boolean(!exception || (exception && !exception.code));
 
-const isAuthorizationError = (error: GraphQLError) =>
+const isAuthenticationError = (error: GraphQLError) =>
   Boolean(error.name === 'AuthenticationError');
 
 const isForbiddenError = (error: GraphQLError) =>

@@ -45,8 +45,8 @@ describe('errorFormatter', () => {
   });
 
   it('formats AuthenticationError', () => {
-    const unauthorizedError = new AuthenticationError('Unauthenticated');
-    const formattedError = errorFormatter()(unauthorizedError);
+    const authenticationError = new AuthenticationError('Unauthenticated');
+    const formattedError = errorFormatter()(authenticationError);
     expect(formattedError.extensions).toEqual({
       code: 'UNAUTHENTICATED',
       exception: {
