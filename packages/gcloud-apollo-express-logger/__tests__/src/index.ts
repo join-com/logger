@@ -2,13 +2,12 @@ import { errorLoggingExtension, errorFormatter } from '../../src/index';
 import {
   ApolloServer,
   AuthenticationError,
-  ApolloError,
   ForbiddenError,
 } from 'apollo-server-express';
 import express from 'express';
 import request from 'supertest';
 import { GraphQLError } from 'graphql';
-import { buildSchema, UnauthorizedError } from 'type-graphql';
+import { buildSchema } from 'type-graphql';
 import { TestResolver } from '../../support/TestResolver';
 import { DEFAULT_TRACE_CONTEXT_NAME, start } from '@join-com/node-trace';
 
@@ -52,7 +51,7 @@ describe('errorFormatter', () => {
       code: 'UNAUTHENTICATED',
       exception: {
         code: 401,
-        message: 'Authorization error',
+        message: 'Authentication error',
       },
     });
   });
