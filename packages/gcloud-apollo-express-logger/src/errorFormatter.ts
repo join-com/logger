@@ -16,7 +16,7 @@ export const errorFormatter = (options?: IFormatterOptions) => (
 ) => {
   if (error.extensions) {
     let exception = error.extensions.exception;
-    if (exception?.validationErrors) {
+    if (exception && exception.validationErrors) {
       exception = new ClassValidationError(exception.validationErrors);
     } else if (isAuthenticationError(error)) {
       exception = {
