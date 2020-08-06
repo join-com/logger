@@ -49,7 +49,7 @@ const isUnknownError = (exception: IException | undefined) =>
   Boolean(!exception || (exception && !exception.code));
 
 const isAuthenticationError = (error: GraphQLError) =>
-  Boolean(error.name === 'AuthenticationError');
+  Boolean(error.extensions && error.extensions.code === 'UNAUTHENTICATED');
 
 const isForbiddenError = (error: GraphQLError) =>
-  Boolean(error.name === 'ForbiddenError');
+  Boolean(error.extensions && error.extensions.code === 'FORBIDDEN');
