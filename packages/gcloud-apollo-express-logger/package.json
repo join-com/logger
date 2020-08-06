@@ -1,6 +1,6 @@
 {
   "name": "@join-com/gcloud-apollo-express-logger",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "description": "gcloud request logger",
   "main": "./lib/src/index.js",
   "types": "./lib/src/index.d.ts",
