@@ -20,17 +20,17 @@ export const errorFormatter = (options?: IFormatterOptions) => (
       exception = new ClassValidationError(exception.validationErrors);
     } else if (isAuthenticationError(error)) {
       exception = {
-        code: 401,
+        code: 'unauthorized',
         message: 'Authentication error',
       };
     } else if (isForbiddenError(error)) {
       exception = {
-        code: 403,
+        code: 'forbidden',
         message: 'Forbidden error',
       };
     } else if (isUnknownError(exception)) {
       exception = {
-        code: 500,
+        code: 'unknown',
         message: 'Server error',
       };
     }

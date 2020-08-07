@@ -15,7 +15,7 @@ describe('errorFormatter', () => {
     const graphqlError = new GraphQLError('', _, _, _, _, _, {});
     const formattedError = errorFormatter()(graphqlError);
     expect(formattedError.extensions).toEqual({
-      exception: { code: 500, message: 'Server error' },
+      exception: { code: 'unknown', message: 'Server error' },
     });
   });
 
@@ -25,7 +25,7 @@ describe('errorFormatter', () => {
     expect(formattedError.extensions).toEqual({
       code: 'FORBIDDEN',
       exception: {
-        code: 403,
+        code: 'forbidden',
         message: 'Forbidden error',
       },
     });
@@ -37,7 +37,7 @@ describe('errorFormatter', () => {
     expect(formattedError.extensions).toEqual({
       code: 'UNAUTHENTICATED',
       exception: {
-        code: 401,
+        code: 'unauthorized',
         message: 'Authentication error',
       },
     });
