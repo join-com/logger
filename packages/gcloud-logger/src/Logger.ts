@@ -177,8 +177,13 @@ export class Logger {
             return obj.map(item => replaceCircular(item, alreadySeen));
           }
 
+          const keys = Object.keys(obj);
+          if (keys.length === 0) {
+            return obj;
+          }
+
           const newObj: IObject = {};
-          Object.keys(obj).forEach(key => {
+          keys.forEach(key => {
             const val = replaceCircular(obj[key], alreadySeen);
             newObj[key] = val;
           });
