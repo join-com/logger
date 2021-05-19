@@ -36,3 +36,10 @@ export const getTraceContextName = (): string => {
 };
 
 export { traceMiddleware } from './expressMiddleware';
+
+export default {
+  DEFAULT_TRACE_CONTEXT_NAME,
+  start,
+  getTraceContext,
+  getTraceContextName,
+};
