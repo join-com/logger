@@ -1,6 +1,6 @@
 {
   "name": "@join-com/gcloud-logger",
-  "version": "0.1.17",
+  "version": "0.2.0",
   "description": "gcloud simple logger",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
