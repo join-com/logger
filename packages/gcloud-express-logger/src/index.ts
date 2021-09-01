@@ -9,6 +9,7 @@ const requestLogMessage = (req: Request, res: Response, ms: number) => ({
     requestMethod: req.method,
     status: res.statusCode,
     userAgent: req.headers['user-agent'],
+    buildId: req.headers['Build-id'],
     referer: req.headers.referer || req.headers.referrer,
     latency: `${ms.toFixed(3)}ms`,
     path: req.route && req.route.path,
