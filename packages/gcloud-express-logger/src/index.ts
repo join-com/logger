@@ -10,6 +10,8 @@ const requestLogMessage = (req: Request, res: Response, ms: number) => ({
     status: res.statusCode,
     userAgent: req.headers['user-agent'],
     release: req.headers['release'],
+    transactionId: req.headers['transaction-id'],
+    transactionName: req.headers['transaction-name'],
     referer: req.headers.referer || req.headers.referrer,
     latency: `${ms.toFixed(3)}ms`,
     path: req.route && req.route.path,
