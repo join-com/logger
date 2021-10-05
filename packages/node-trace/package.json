@@ -39,5 +39,6 @@
   },
   "dependencies": {
     "uuid": "^3.2.1"
-  }
+  },
+  "gitHead": "71e04e709e26d07695679ea0d2ba891c13a28093"
 }

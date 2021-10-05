@@ -2,27 +2,27 @@
 # yarn lockfile v1
 
 
-"@join-com/gcloud-express-logger@^0.1.14":
-  version "0.1.14"
-  resolved "https://registry.yarnpkg.com/@join-com/gcloud-express-logger/-/gcloud-express-logger-0.1.14.tgz#ee6df60f89bfa9bebf27ebd6b1ea33e0cdd77112"
-  integrity sha512-xJBmZ/2Jlad7epu0soLjLjLFjoMQLK9Hk7hZWT35kZA3Yb7ZqvRAuNcmlRadil04aSIKA2neXDyRixpZFz2JEQ==
+"@join-com/gcloud-express-logger@^0.3.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@join-com/gcloud-express-logger/-/gcloud-express-logger-0.2.0.tgz#8af1f2e10ceb930e2ff83e6e730ae2a70893d871"
+  integrity sha512-6D+AHJrhsVlzqvKv+m6FSrCOstgC8ZdXhzzgbSbsaY5BnidoS8PkhGajtBxT4HERQ1deNs0R2tJajU57+dwb5g==
   dependencies:
-    "@join-com/gcloud-logger" "^0.1.14"
+    "@join-com/gcloud-logger" "^0.2.0"
     on-finished "^2.3.0"
 
-"@join-com/gcloud-logger@^0.1.14":
-  version "0.1.14"
-  resolved "https://registry.yarnpkg.com/@join-com/gcloud-logger/-/gcloud-logger-0.1.14.tgz#b549bdb29d75fa106aa16d3699b959ffd7c578b4"
-  integrity sha512-NtMpSJfoM/Izb/oFeVuBVmjXJnd+VWlr7pxlN0gl3BSdTHHnxoyY5vfE/gKN6gn7MUv2qK9sZVWcJc8RZGAKhQ==
+"@join-com/gcloud-logger@^0.2.0", "@join-com/gcloud-logger@^0.3.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@join-com/gcloud-logger/-/gcloud-logger-0.2.0.tgz#35c94570866eb9274abcf705d30d8536c11cb984"
+  integrity sha512-upUazZVwE0zDhXhKB3YJdVD0GuF/XpLXdmMzyynoqNgSlmwopA3nXwxtnJxjSuL7ZvJC+X3DkjtjP2yR+65CRQ==
   dependencies:
     chalk "^2.4.1"
 
-"@join-com/gcloud-typeorm-logger@^0.1.14":
-  version "0.1.14"
-  resolved "https://registry.yarnpkg.com/@join-com/gcloud-typeorm-logger/-/gcloud-typeorm-logger-0.1.14.tgz#2d985ccd7ffb4e2acca06b629f405a45b539c775"
-  integrity sha512-PddLVDxRQOpXeStL5NJBsf9JCb7xmWS/+fSoRUHVtuG5u1xRnvnsFFGEhr0mO+/7f7urq97rRbLc/AUCeEE1rg==
+"@join-com/gcloud-typeorm-logger@^0.3.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@join-com/gcloud-typeorm-logger/-/gcloud-typeorm-logger-0.2.0.tgz#27a2994976a15436b36fff2d1cb8e5fc2c2e96d8"
+  integrity sha512-C5tUSyixleVBHk+3P0CiTjknFjQNR7IRtaEp+xkSPCi8b9mEn+QVOAuJVc7TTBeL7C0sxIG7kONDLPmd3RTWRQ==
   dependencies:
-    "@join-com/gcloud-logger" "^0.1.14"
+    "@join-com/gcloud-logger" "^0.2.0"
 
 "@join-com/node-trace@^0.1.8":
   version "0.1.8"

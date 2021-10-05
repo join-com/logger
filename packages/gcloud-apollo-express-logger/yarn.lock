@@ -325,38 +325,38 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@join-com/gcloud-express-logger@^0.1.17":
-  version "0.1.17"
-  resolved "https://registry.yarnpkg.com/@join-com/gcloud-express-logger/-/gcloud-express-logger-0.1.17.tgz#e659f31178b9d2d8dafa688bb1f691d4d97c3523"
-  integrity sha512-0JaSckTDBRk9Pvc2aa4L4+UzXSoXo3GjcvelKXgK0NTWxkHvwL//pphCMdcetgSSfjIYtGva4yAL/+dwAGO8mA==
+"@join-com/gcloud-express-logger@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@join-com/gcloud-express-logger/-/gcloud-express-logger-0.2.0.tgz#8af1f2e10ceb930e2ff83e6e730ae2a70893d871"
+  integrity sha512-6D+AHJrhsVlzqvKv+m6FSrCOstgC8ZdXhzzgbSbsaY5BnidoS8PkhGajtBxT4HERQ1deNs0R2tJajU57+dwb5g==
   dependencies:
-    "@join-com/gcloud-logger" "^0.1.17"
+    "@join-com/gcloud-logger" "^0.2.0"
     on-finished "^2.3.0"
 
-"@join-com/gcloud-logger-trace@^0.1.17":
-  version "0.1.17"
-  resolved "https://registry.yarnpkg.com/@join-com/gcloud-logger-trace/-/gcloud-logger-trace-0.1.17.tgz#dcc642b64247be05990869f85cca5da9331dd447"
-  integrity sha512-QMnLgA3bXwfTkkpHloFx+f4mdhkG5/strPUBZ4+QrtvKWs7iH9c0exfxyBnInvzmFMP5VXoDMXhMEOSYnlkG3Q==
+"@join-com/gcloud-logger-trace@^0.3.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@join-com/gcloud-logger-trace/-/gcloud-logger-trace-0.2.0.tgz#e752b1b2272812117cc811eae9e2a8255711aa80"
+  integrity sha512-tHSe0jlkILfcVZ/K5LfEv4Nm+WVRzv5ne2SCDYOaE0DTQclH2zlhMz0WWuIcJkwPpq/rhewJQlVFEd0GzJsZBw==
   dependencies:
-    "@join-com/gcloud-express-logger" "^0.1.17"
-    "@join-com/gcloud-logger" "^0.1.17"
-    "@join-com/gcloud-typeorm-logger" "^0.1.17"
+    "@join-com/gcloud-express-logger" "^0.2.0"
+    "@join-com/gcloud-logger" "^0.2.0"
+    "@join-com/gcloud-typeorm-logger" "^0.2.0"
     "@join-com/node-trace" "^0.1.8"
     "@types/node" "^10.3.4"
 
-"@join-com/gcloud-logger@^0.1.17":
-  version "0.1.17"
-  resolved "https://registry.yarnpkg.com/@join-com/gcloud-logger/-/gcloud-logger-0.1.17.tgz#b8511caa253b2ccf683b4345bf2b966904658cf0"
-  integrity sha512-auQk1nKrWu1bl9kJx0Qc258b7FUr36gSovsMSSNz+6Vle1LbcNAC/8GL32YT/5he5iJpgQXstr1gJSfJyizl1Q==
+"@join-com/gcloud-logger@^0.2.0", "@join-com/gcloud-logger@^0.3.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@join-com/gcloud-logger/-/gcloud-logger-0.2.0.tgz#35c94570866eb9274abcf705d30d8536c11cb984"
+  integrity sha512-upUazZVwE0zDhXhKB3YJdVD0GuF/XpLXdmMzyynoqNgSlmwopA3nXwxtnJxjSuL7ZvJC+X3DkjtjP2yR+65CRQ==
   dependencies:
     chalk "^2.4.1"
 
-"@join-com/gcloud-typeorm-logger@^0.1.17":
-  version "0.1.17"
-  resolved "https://registry.yarnpkg.com/@join-com/gcloud-typeorm-logger/-/gcloud-typeorm-logger-0.1.17.tgz#e0d1bf5ed0d452fd20753f6d057ae8aa86ce3700"
-  integrity sha512-jGu2pTzwEl3ClWhh1VIDpxJRi/Ii6qP78lsYvSOLrleYL1wuvdLrmDcwwbaJX0muLjHmLPWtL3EefgWxR+JRuA==
+"@join-com/gcloud-typeorm-logger@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@join-com/gcloud-typeorm-logger/-/gcloud-typeorm-logger-0.2.0.tgz#27a2994976a15436b36fff2d1cb8e5fc2c2e96d8"
+  integrity sha512-C5tUSyixleVBHk+3P0CiTjknFjQNR7IRtaEp+xkSPCi8b9mEn+QVOAuJVc7TTBeL7C0sxIG7kONDLPmd3RTWRQ==
   dependencies:
-    "@join-com/gcloud-logger" "^0.1.17"
+    "@join-com/gcloud-logger" "^0.2.0"
 
 "@join-com/node-trace@^0.1.8":
   version "0.1.8"
