@@ -1,6 +1,6 @@
 {
   "name": "@join-com/node-trace",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "node tracing library",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
