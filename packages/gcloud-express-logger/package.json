@@ -38,7 +38,6 @@
   },
   "dependencies": {
     "@join-com/gcloud-logger": "^0.3.3",
-    "@join-com/gcloud-logger-trace": "^0.3.3",
     "on-finished": "^2.3.0"
   },
   "gitHead": "71e04e709e26d07695679ea0d2ba891c13a28093"

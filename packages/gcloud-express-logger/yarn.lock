@@ -2,45 +2,12 @@
 # yarn lockfile v1
 
 
-"@join-com/gcloud-express-logger@^0.3.1":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@join-com/gcloud-express-logger/-/gcloud-express-logger-0.3.1.tgz#3b98995fb1449e44aab34a1457c69230024739bf"
-  integrity sha512-BAK10vVDVM4Rx6CIKZHSk+eKN90yNlGwBjp5gEVY6isXCVNeb3uF6YMx0V6j1pGgXp+9Xny+IuoB91N+S9w0Qw==
-  dependencies:
-    "@join-com/gcloud-logger" "^0.3.1"
-    on-finished "^2.3.0"
-
-"@join-com/gcloud-logger-trace@^0.3.1":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@join-com/gcloud-logger-trace/-/gcloud-logger-trace-0.3.1.tgz#22ca83acd00befdde3e0ee8e12ef5d00d514e98b"
-  integrity sha512-p/t5LN9B4zKuf6+qfko71rcOAAHotm/rcbnD6dcAvZEmrCDcOy32umWcelHMDShovxxdPAEAGnjwRqfkPVUG9g==
-  dependencies:
-    "@join-com/gcloud-express-logger" "^0.3.1"
-    "@join-com/gcloud-logger" "^0.3.1"
-    "@join-com/gcloud-typeorm-logger" "^0.3.1"
-    "@join-com/node-trace" "^0.1.8"
-    "@types/node" "^10.3.4"
-
-"@join-com/gcloud-logger@^0.3.1":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@join-com/gcloud-logger/-/gcloud-logger-0.3.1.tgz#433f1ab2756efb25ed9e9b786aa2ff64ef0260b4"
-  integrity sha512-Utx9Qg6fAPE0Mswdw5lMm45c/7Q/Nd8CdDLBp1twjlv79pxZcoFg+3R6ths0Vs3tiuP4vVOSqXbp8J74/MKetg==
+"@join-com/gcloud-logger@^0.3.3":
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/@join-com/gcloud-logger/-/gcloud-logger-0.3.3.tgz#502bc4eb3f32b5dba3dac2d61e6a69f1054c6971"
+  integrity sha512-zjIiEyQ53Pcsws3odTHx7grOn/nWq8nDl1lc6+cuXVt1AcAoFN07ekJ+ED6ZU+oUQVCGqcSJG3/eyCEOBOs7pg==
   dependencies:
     chalk "^2.4.1"
-
-"@join-com/gcloud-typeorm-logger@^0.3.1":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@join-com/gcloud-typeorm-logger/-/gcloud-typeorm-logger-0.3.1.tgz#61ba9606dfb4ad12aef6dd6791dd501b7853b427"
-  integrity sha512-+khD/ygreDSMBxAJkfta7C363wpwerzC8xZdWb6bbA3VYYet6ez9grBQYI+y9iXAb7kloGuwmZVou0Ww1WLn4A==
-  dependencies:
-    "@join-com/gcloud-logger" "^0.3.1"
-
-"@join-com/node-trace@^0.1.8":
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/@join-com/node-trace/-/node-trace-0.1.8.tgz#db900ae284f4cb957fd0fd0bb9db9512ce760943"
-  integrity sha512-cSmvsYoxYz+qb/HplWMaOCVesNMJ8+qu0JFREcBHjM+M73UeF1UG31kB5C0fRUx/GB+Q1QkKzZ16L83OjpT+rA==
-  dependencies:
-    uuid "^3.2.1"
 
 "@types/body-parser@*":
   version "1.17.0"
@@ -82,11 +49,6 @@
 "@types/node@*":
   version "10.3.4"
   resolved "https://registry.npmjs.org/@types/node/-/node-10.3.4.tgz#c74e8aec19e555df44609b8057311052a2c84d9e"
-
-"@types/node@^10.3.4":
-  version "10.17.60"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.17.60.tgz#35f3d6213daed95da7f0f73e75bcc6980e90597b"
-  integrity sha512-F0KIgDJfy2nA3zMLmWGKxcH2ZVEtCZXHHdOQs2gSaQ27+lNeEfGxzkIw90aXswATX7AZ33tahPbzy6KAfUreVw==
 
 "@types/on-finished@^2.3.1":
   version "2.3.1"
@@ -156,8 +118,3 @@ supports-color@^5.3.0:
 typescript@^2.9.2:
   version "2.9.2"
   resolved "https://registry.npmjs.org/typescript/-/typescript-2.9.2.tgz#1cbf61d05d6b96269244eb6a3bce4bd914e0f00c"
-
-uuid@^3.2.1:
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
-  integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
