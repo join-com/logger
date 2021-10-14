@@ -1,4 +1,5 @@
-import gcloudLogger, { Logger } from '@join-com/gcloud-logger';
+import { Logger } from '@join-com/gcloud-logger';
+import gcloudLogger from '@join-com/gcloud-logger-trace';
 import { NextFunction, Request, Response } from 'express';
 import onFinished from 'on-finished';
 
