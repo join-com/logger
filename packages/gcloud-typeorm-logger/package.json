@@ -36,7 +36,7 @@
     "typescript": "^2.9.2"
   },
   "dependencies": {
-    "@join-com/gcloud-logger": "^0.3.1"
+    "@join-com/gcloud-logger": "^0.3.2"
   },
   "gitHead": "71e04e709e26d07695679ea0d2ba891c13a28093"
 }
