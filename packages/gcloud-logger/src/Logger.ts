@@ -126,9 +126,18 @@ export class Logger {
     this.print(level, this.formatMessage(level, messageText, payload));
   }
 
-  public reportError(err: Error) {
+  public reportError(err: any) {
     const fullError = util.inspect(err, { showHidden: false, depth: null });
-    this.error(err.stack!, { fullError });
+
+    this.error(this.getMessage(err), { fullError });
+  }
+
+  private getMessage(err: any) {
+    if (Logger.isError(err)) {
+      return err.stack || err.message;
+    }
+
+    return this.stringify(err);
   }
 
   private formatMessage(
@@ -205,5 +214,9 @@ export class Logger {
     };
 
     return JSON.stringify(replaceCircular(message), excludeSensitive);
+  }
+
+  private static isError(err: any): err is Error {
+    return typeof err === 'object' && 'message' in err;
   }
 }
