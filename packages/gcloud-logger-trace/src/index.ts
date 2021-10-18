@@ -20,7 +20,7 @@ const start = (req: expressLogger.Request) => {
 
 export const requestLogger = expressLogger.requestLogger(logger, start);
 
-export const reportError = (e: Error) => {
+export const reportError = (e: any) => {
   logger.reportError(e);
 };
 
