@@ -56,7 +56,7 @@
   "dependencies": {
     "@join-com/gcloud-logger": "^0.4.0",
     "@join-com/gcloud-logger-trace": "^0.4.1",
-    "@join-com/node-trace": "^0.1.8",
+    "@join-com/node-trace": "^0.4.0",
     "@join-private/base-errors": "^1.1.9"
   },
   "gitHead": "71e04e709e26d07695679ea0d2ba891c13a28093"
