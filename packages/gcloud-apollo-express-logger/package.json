@@ -11,9 +11,8 @@
   },
   "keywords": [
     "gcloud",
-    "cloud",
-    "graphql",
     "logger",
+    "graphql",
     "typescript"
   ],
   "engines": {
