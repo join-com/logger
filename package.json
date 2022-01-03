@@ -1,36 +1,21 @@
 {
-  "name": "gj-logger",
-  "version": "0.1.0",
-  "description": "gcloud logger from JOIN",
-  "main": "index.ts",
-  "repository": "git@github.com:join-com/gj-logger.git",
-  "author": "JOIN Solutions",
-  "license": "MIT",
+  "license": "UNLICENSED",
+  "private": true,
+  "workspaces": [
+    "packages/gcloud-apollo-express-logger"
+  ],
   "scripts": {
-    "makepretty": "prettier --write '**/*.ts'",
-    "lint": "yarn tslint -p ."
+    "build": "yarn workspaces run build",
+    "lint": "yarn workspaces run lint",
+    "test": "yarn workspaces run test",
+    "release": "yarn workspaces run semantic-release -e semantic-release-monorepo",
+    "postinstall": "if [ -d .git ]; then git config core.hooksPath .hooks; fi"
   },
-  "lint-staged": {
-    "*.{js,ts,md}": [
-      "npx prettier --write"
-    ],
-    "src/**/*.ts": [
-      "npm run lint --fix"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lerna run tsc:check && lint-staged"
-    }
+  "engines": {
+    "node": ">=14.0.0"
   },
   "devDependencies": {
-    "husky": "^4.2.3",
-    "lerna": "^3.20.2",
-    "lint-staged": "^10.0.8",
-    "prettier": "^1.19.1",
-    "tslint": "^6.0.0",
-    "tslint-config-prettier": "^1.18.0",
-    "typescript": "^4.2.4"
-  },
-  "dependencies": {}
+    "semantic-release": "^18.0.1",
+    "semantic-release-monorepo": "^7.0.5"
+  }
 }

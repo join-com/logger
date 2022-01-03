@@ -1,12 +1,11 @@
 module.exports = {
   preset: 'ts-jest',
-  roots: ['<rootDir>/__tests__/src'],
-  transform: {
-    '^.+\\.ts?$': 'ts-jest',
-  },
+  testEnvironment: 'node',
+  testPathIgnorePatterns: ['/node_modules/', '/support/'],
+  resetMocks: true,
   globals: {
     'ts-jest': {
       diagnostics: false,
     },
   },
-};
+}

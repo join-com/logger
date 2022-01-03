@@ -1,2 +1,2 @@
-export * from './errorLoggingExtension';
-export * from './errorFormatter';
+export * from './errorLoggingPlugin'
+export * from './errorFormatter'

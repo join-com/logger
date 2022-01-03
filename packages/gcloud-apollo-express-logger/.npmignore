@@ -1,0 +1,7 @@
+src/
+tsconfig.prod.tsbuildinfo
+tsconfig.prod.json
+tsconfig.json
+.eslintignore
+.eslintrc.js
+jest.config.js
