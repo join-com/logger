@@ -1,0 +1,100 @@
+version: 2.1
+
+docker-auth: &docker-auth
+  auth:
+    username: ${DOCKER_LOGIN}
+    password: ${DOCKER_PASSWORD}
+
+defaults: &defaults
+  working_directory: /logger
+  docker:
+    - image: node:16.13.1
+      <<: *docker-auth
+
+references:
+  auth_with_registry: &auth_with_registry
+    run:
+      name: Authenticate with registry
+      command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > .npmrc
+
+  remove_auth_with_registry: &remove_auth_with_registry
+    run:
+      name: Remove authentification with registry
+      command: rm .npmrc
+
+  yarn_install: &yarn_install
+    run:
+      name: yarn install
+      command: yarn --frozen-lockfile --cache-folder ~/.cache/yarn
+
+  yarn_cache_key: &yarn_cache_key yarn-packages-{{ checksum "yarn.lock" }}
+
+  save_yarn_cache: &save_yarn_cache
+    save_cache:
+      name: 'Saving Yarn Cache'
+      key: *yarn_cache_key
+      paths:
+        - ~/.cache/yarn
+
+  restore_yarn_cache: &restore_yarn_cache
+    restore_cache:
+      name: Restoring Yarn Cache
+      key: *yarn_cache_key
+
+jobs:
+  lint:
+    <<: *defaults
+    steps:
+      - checkout
+      - *restore_yarn_cache
+      - *auth_with_registry
+      - *yarn_install
+      - run:
+          name: lint
+          command: yarn lint
+      - *save_yarn_cache
+      - *remove_auth_with_registry
+
+  test:
+    <<: *defaults
+    steps:
+      - checkout
+      - *restore_yarn_cache
+      - *auth_with_registry
+      - *yarn_install
+      - run:
+          name: test
+          command: yarn test
+      - *save_yarn_cache
+      - *remove_auth_with_registry
+
+  release:
+    <<: *defaults
+    steps:
+      - checkout
+      - *restore_yarn_cache
+      - *auth_with_registry
+      - *yarn_install
+      - run:
+          name: release
+          command: yarn release
+      - *remove_auth_with_registry
+
+workflows:
+  version: 2
+  build_test_deploy:
+    jobs:
+      - lint:
+          context: Global
+      - test:
+          context: Global
+      - release:
+          context: Global
+          filters:
+            branches:
+              only:
+                - master
+                - alpha
+          requires:
+            - lint
+            - test

@@ -1,0 +1,24 @@
+name: 'Lint PR title'
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - edited
+      - synchronize
+
+jobs:
+  lint:
+    name: lint-pr-title
+    runs-on: ubuntu-latest
+    steps:
+      - name: semantic-pull-request
+        uses: amannn/action-semantic-pull-request@v3.4.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+        with:
+          subjectPattern: ^((JOIN-\d+([, ]JOIN-\d+)*)|TECH|bump) (?![A-Z]).+$
+          subjectPatternError: |
+            The subject "{subject}" found in the pull request title "{title}"
+            didn't match the configured pattern. Please ensure that the subject
+            doesn't start with an uppercase character and includes jira ticket.
