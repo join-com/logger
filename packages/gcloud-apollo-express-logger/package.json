@@ -10,8 +10,8 @@
     "url": "https://github.com/join-com/logger"
   },
   "keywords": [
-    "gcloud",
     "logger",
+    "gcloud",
     "graphql",
     "typescript"
   ],
