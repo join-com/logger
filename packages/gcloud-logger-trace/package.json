@@ -1,6 +1,6 @@
 {
   "name": "@join-com/gcloud-logger-trace",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "gcloud logger with tracing",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -38,9 +38,9 @@
     "typescript": "^4.5.5"
   },
   "dependencies": {
-    "@join-com/gcloud-express-logger": "^0.4.0",
-    "@join-com/gcloud-logger": "^0.4.0",
-    "@join-com/gcloud-typeorm-logger": "^0.4.0",
+    "@join-com/gcloud-express-logger": "^0.4.3",
+    "@join-com/gcloud-logger": "^0.4.3",
+    "@join-com/gcloud-typeorm-logger": "^0.4.3",
     "@join-com/node-trace": "^0.4.0"
   },
   "gitHead": "71e04e709e26d07695679ea0d2ba891c13a28093"
