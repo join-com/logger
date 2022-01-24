@@ -33,10 +33,11 @@
   ],
   "devDependencies": {
     "@types/node": "^10.3.4",
-    "typescript": "^2.9.2"
+    "typescript": "^4.5.5"
   },
   "dependencies": {
-    "chalk": "^2.4.1"
+    "chalk": "^2.4.1",
+    "serialize-error": "~8.0.0"
   },
   "gitHead": "71e04e709e26d07695679ea0d2ba891c13a28093"
 }
