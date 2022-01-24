@@ -1,6 +1,7 @@
 import chalk from 'chalk';
 import * as os from 'os';
 import * as util from 'util';
+import { serializeError } from 'serialize-error';
 
 enum LevelNumber {
   DEFAULT = 0,
@@ -146,7 +147,9 @@ export class Logger {
     payload?: any,
   ): string {
     const trace = this.getTraceContext && this.getTraceContext();
-    const payloadWitTrace = trace ? { ...payload, trace } : payload;
+    const payloadWitTrace = trace
+      ? { ...serializeError(payload), trace }
+      : serializeError(payload);
     if (this.useJsonFormat) {
       const message = {
         message: messageText,
