@@ -325,45 +325,38 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@join-com/gcloud-express-logger@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@join-com/gcloud-express-logger/-/gcloud-express-logger-0.4.0.tgz#98f5696b48455ab044632d10ef63c6cf88c1765b"
-  integrity sha512-pHS10inLXKvkzW/cDsNhX4PvfLk6+l9HxAt5ytjcl/3NEfgHvQd3+dWc7sec1nMBSJNjhsY/ZO4iOwNru3VZcA==
+"@join-com/gcloud-express-logger@^0.4.3":
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/@join-com/gcloud-express-logger/-/gcloud-express-logger-0.4.3.tgz#03bbe92195cb6c425dc5b61c5ffd2b7ecb073f58"
+  integrity sha512-LYF2h6+8Bha+lmc2EnqXIahj+UfAyg4wWRHCHMCAOOJnQO6VOn+sCAvrRKH2JxdmXn5dzhdZgEi9+QV4l236oA==
   dependencies:
-    "@join-com/gcloud-logger" "^0.4.0"
+    "@join-com/gcloud-logger" "^0.4.3"
     on-finished "^2.3.0"
 
-"@join-com/gcloud-logger-trace@^0.4.1":
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/@join-com/gcloud-logger-trace/-/gcloud-logger-trace-0.4.1.tgz#b4ccf11064b65bb44aa3c91d610c28282f12cd7b"
-  integrity sha512-/UkH8Va1Ymwr2eX2FV62s0/R0n0PB9FKEhc0mHHCU2BiFJU2FlmAi1ROIOdb0C+MX7+YhTwuSSPRSxxYiRIBiQ==
+"@join-com/gcloud-logger-trace@^0.4.3":
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/@join-com/gcloud-logger-trace/-/gcloud-logger-trace-0.4.3.tgz#fa3c175727981c49f1a1d8591c555d8f4ae2cb5f"
+  integrity sha512-2vXgd4e1EVzSOirnRVDjNW6LVfZCtV2yJxpGQyjqViKOghxT1lThrcL9CntVC2KE8Ljs+Ti6IeHzXEYg1BJQLw==
   dependencies:
-    "@join-com/gcloud-express-logger" "^0.4.0"
-    "@join-com/gcloud-logger" "^0.4.0"
-    "@join-com/gcloud-typeorm-logger" "^0.4.0"
-    "@join-com/node-trace" "^0.1.8"
-    "@types/node" "^10.3.4"
+    "@join-com/gcloud-express-logger" "^0.4.3"
+    "@join-com/gcloud-logger" "^0.4.3"
+    "@join-com/gcloud-typeorm-logger" "^0.4.3"
+    "@join-com/node-trace" "^0.4.0"
 
-"@join-com/gcloud-logger@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@join-com/gcloud-logger/-/gcloud-logger-0.4.0.tgz#c45f8cace2a55a87303795144ae2a88f92390950"
-  integrity sha512-ZTgQMM51ppeYPV0YSpI9y8XaxHhhKTP/KGksOSQF5lJVrVYLghihsGaY/HNcpRHuc1PKJ7hnmZvfQiNw0Rd9zQ==
+"@join-com/gcloud-logger@^0.4.3":
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/@join-com/gcloud-logger/-/gcloud-logger-0.4.3.tgz#05b46a5fc759a8b62509613c7eec9cf4eeeb4c3c"
+  integrity sha512-L1fzyNv+MzkGN1bG0Jk5ge5OsojEZhW6zKmpWqQnkRwUJZboVNukMQGVaNras8oEQ/aHJrUNAF9B0rNN3etqHA==
   dependencies:
     chalk "^2.4.1"
+    serialize-error "~8.0.0"
 
-"@join-com/gcloud-typeorm-logger@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@join-com/gcloud-typeorm-logger/-/gcloud-typeorm-logger-0.4.0.tgz#65c584d1472b150e405ced2fa0ce52b8b9d4fe49"
-  integrity sha512-b7y/Z1/gQk/7Nlap1Nk89XtCHPoOZ1qkET1jdJYTrZ06XKXdcqbxsPe2VzehVZuD0lPkuZ7QTtKwi2InbLIqsw==
+"@join-com/gcloud-typeorm-logger@^0.4.3":
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/@join-com/gcloud-typeorm-logger/-/gcloud-typeorm-logger-0.4.3.tgz#11f439da8b338e4180f9b87f6666d9c460084f57"
+  integrity sha512-yeffjboozFyry3vS+O+dQ5p9pdi96HOKWTS+sxCe7n+oLGE+GbpFCORh9ygFQ4tiHM8hRr6Tagaae6ieHOS2HQ==
   dependencies:
-    "@join-com/gcloud-logger" "^0.4.0"
-
-"@join-com/node-trace@^0.1.8":
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/@join-com/node-trace/-/node-trace-0.1.8.tgz#db900ae284f4cb957fd0fd0bb9db9512ce760943"
-  integrity sha512-cSmvsYoxYz+qb/HplWMaOCVesNMJ8+qu0JFREcBHjM+M73UeF1UG31kB5C0fRUx/GB+Q1QkKzZ16L83OjpT+rA==
-  dependencies:
-    uuid "^3.2.1"
+    "@join-com/gcloud-logger" "^0.4.3"
 
 "@join-com/node-trace@^0.4.0":
   version "0.4.0"
@@ -662,7 +655,7 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.7.5.tgz#e19436e7f8e9b4601005d73673b6dc4784ffcc2f"
   integrity sha512-9fq4jZVhPNW8r+UYKnxF1e2HkDWOWKM5bC2/7c9wPV835I0aOrVbS/Hw/pWPk2uKrNXQqg9Z959Kz+IYDd5p3w==
 
-"@types/node@^10.1.0", "@types/node@^10.3.4":
+"@types/node@^10.1.0":
   version "10.14.18"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.14.18.tgz#b7d45fc950e6ffd7edc685e890d13aa7b8535dce"
   integrity sha512-ryO3Q3++yZC/+b8j8BdKd/dn9JlzlHBPdm80656xwYUdmPkpTGTjkAdt6BByiNupGPE8w0FhBgvYy/fX9hRNGQ==
@@ -783,11 +776,11 @@ acorn@^6.0.1:
   integrity sha512-/czfa8BwS88b9gWQVhc8eknunSA2DoJpJyTQkhheIf5E48u1N0R4q/YxxsAeqRrmK9TQ/uYfgLDfZo91UlANIA==
 
 ajv@^6.5.5:
-  version "6.10.2"
-  resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.10.2.tgz#d3cea04d6b017b2894ad69040fec8b623eb4bd52"
-  integrity sha512-TXtUUEYHuaTEbLZWIKUr5pmBuhDLy+8KYtPYdcV8qC+pOZL+NKqYwvWSRrVXHn+ZmRRAu8vJTAznH7Oag6RVRw==
+  version "6.12.6"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.12.6.tgz#baf5a62e802b07d977034586f8c3baf5adf26df4"
+  integrity sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==
   dependencies:
-    fast-deep-equal "^2.0.1"
+    fast-deep-equal "^3.1.1"
     fast-json-stable-stringify "^2.0.0"
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
@@ -1864,15 +1857,15 @@ extsprintf@^1.2.0:
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.4.0.tgz#e2689f8f356fad62cca65a3a91c5df5f9551692f"
   integrity sha1-4mifjzVvrWLMplo6kcXfX5VRaS8=
 
-fast-deep-equal@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-2.0.1.tgz#7b05218ddf9667bf7f370bf7fdb2cb15fdd0aa49"
-  integrity sha1-ewUhjd+WZ79/Nwv3/bLLFf3Qqkk=
+fast-deep-equal@^3.1.1:
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz#3a7d56b559d6cbc3eb512325244e619a65c6c525"
+  integrity sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==
 
 fast-json-stable-stringify@2.x, fast-json-stable-stringify@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/fast-json-stable-stringify/-/fast-json-stable-stringify-2.0.0.tgz#d5142c0caee6b1189f87d3a76111064f86c8bbf2"
-  integrity sha1-1RQsDK7msRifh9OnYREGT4bIu/I=
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/fast-json-stable-stringify/-/fast-json-stable-stringify-2.1.0.tgz#874bf69c6f404c2b5d99c481341399fd55892633"
+  integrity sha512-lhd/wF+Lk98HZoTCtlVraHtfh5XYijIjalXck7saUtuanSDyLMxnHhSXEDJqHxD7msR8D0uCmqlkwjCV8xvwHw==
 
 fast-levenshtein@~2.0.4:
   version "2.0.6"
@@ -3964,6 +3957,13 @@ send@0.17.1:
     range-parser "~1.2.1"
     statuses "~1.5.0"
 
+serialize-error@~8.0.0:
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/serialize-error/-/serialize-error-8.0.1.tgz#7a67f8ecbbf28973b5a954a2852ff9f4eef52d99"
+  integrity sha512-r5o60rWFS+8/b49DNAbB+GXZA0SpDpuWE758JxDKgRTga05r3U5lwyksE91dYKDhXSmnu36RALj615E6Aj5pSg==
+  dependencies:
+    type-fest "^0.20.2"
+
 serve-static@1.14.1:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/serve-static/-/serve-static-1.14.1.tgz#666e636dc4f010f7ef29970a88a674320898b2f9"
@@ -4468,6 +4468,11 @@ type-check@~0.3.2:
   dependencies:
     prelude-ls "~1.1.2"
 
+type-fest@^0.20.2:
+  version "0.20.2"
+  resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.20.2.tgz#1bf207f4b28f91583666cb5fbd327887301cd5f4"
+  integrity sha512-Ne+eE4r0/iWnpAxD852z3A+N0Bt5RN//NjJwRd2VFHEmrywxf5vsZlh4R6lixl6B+wz/8d+maTSAkN1FIkI3LQ==
+
 type-graphql@^0.17.5:
   version "0.17.6"
   resolved "https://registry.yarnpkg.com/type-graphql/-/type-graphql-0.17.6.tgz#2a939df607f7ca2924986fd0c0b8c753835d7d01"
@@ -4525,9 +4530,9 @@ unset-value@^1.0.0:
     isobject "^3.0.0"
 
 uri-js@^4.2.2:
-  version "4.2.2"
-  resolved "https://registry.yarnpkg.com/uri-js/-/uri-js-4.2.2.tgz#94c540e1ff772956e2299507c010aea6c8838eb0"
-  integrity sha512-KY9Frmirql91X2Qgjry0Wd4Y+YTdrdZheS8TFwvkbLWf/G5KNJDCh6pKL5OZctEW4+0Baa5idK2ZQuELRwPznQ==
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/uri-js/-/uri-js-4.4.1.tgz#9b1a52595225859e55f669d928f88c6c57f2a77e"
+  integrity sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==
   dependencies:
     punycode "^2.1.0"
 
