@@ -10,8 +10,8 @@
     "url": "git+https://github.com/join-com/logger.git"
   },
   "keywords": [
-    "gcloud",
     "logger",
+    "gcloud",
     "typescript",
     "json"
   ],
