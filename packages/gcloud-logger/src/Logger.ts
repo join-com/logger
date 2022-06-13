@@ -80,44 +80,45 @@ export class Logger {
     this.logLevelNumber = logLevel(logLevelStarts)
   }
 
-  public debug(message: string, payload?: Record<string, unknown>) {
+  public debug(message: string, payload?: unknown) {
     this.log(Level.DEBUG, message, payload)
   }
 
-  public info(message: string, payload?: Record<string, unknown>) {
+  public info(message: string, payload?: unknown) {
     this.log(Level.INFO, message, payload)
   }
 
-  public notice(message: string, payload?: Record<string, unknown>) {
+  public notice(message: string, payload?: unknown) {
     this.log(Level.NOTICE, message, payload)
   }
 
-  public warn(message: string, payload?: Record<string, unknown>) {
+  public warn(message: string, payload?: unknown) {
     this.log(Level.WARNING, message, payload)
   }
 
-  public error(message: string, payload?: Record<string, unknown>) {
+  public error(message: string, payload?: unknown) {
     this.log(Level.ERROR, message, payload)
   }
 
-  public crit(message: string, payload?: Record<string, unknown>) {
+  public crit(message: string, payload?: unknown) {
     this.log(Level.CRITICAL, message, payload)
   }
 
-  public alert(message: string, payload?: Record<string, unknown>) {
+  public alert(message: string, payload?: unknown) {
     this.log(Level.ALERT, message, payload)
   }
 
-  public emerg(message: string, payload?: Record<string, unknown>) {
+  public emerg(message: string, payload?: unknown) {
     this.log(Level.EMERGENCY, message, payload)
   }
 
-  public log(level: Level | Level.DEFAULT, messageText: string, payload?: Record<string, unknown>) {
+  public log(level: Level | Level.DEFAULT, messageText: string, payload?: unknown) {
     if (LevelNumber[level] < this.logLevelNumber) {
       return
     }
 
-    this.print(level, this.formatMessage(level, messageText, payload))
+    const payloadObject = payload && this.isObject(payload) ? payload : { payload }
+    this.print(level, this.formatMessage(level, messageText, payloadObject))
   }
 
   public reportError(err: unknown) {
@@ -163,6 +164,10 @@ export class Logger {
     } else {
       process.stdout.write(msg)
     }
+  }
+
+  private isObject = (obj: unknown): obj is Record<string, unknown> => {
+    return obj instanceof Object && obj.constructor === Object
   }
 
   private stringify(message: unknown) {
