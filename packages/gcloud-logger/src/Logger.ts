@@ -117,8 +117,7 @@ export class Logger {
       return
     }
 
-    const payloadObject = (payload && { payload }) as Record<string, unknown>
-    this.print(level, this.formatMessage(level, messageText, payloadObject))
+    this.print(level, this.formatMessage(level, messageText, payload))
   }
 
   public reportError(err: unknown) {
@@ -135,15 +134,17 @@ export class Logger {
     return this.stringify(err)
   }
 
-  private formatMessage(level: Level, messageText: string, payload?: Record<string, unknown>): string {
+  private formatMessage(level: Level, messageText: string, payload?: unknown): string {
     return this.useJsonFormat
       ? this.formatJsonMessage(level, messageText, payload)
       : this.formatPlainTextMessage(level, messageText, payload)
   }
 
-  private formatJsonMessage(level: Level, messageText: string, payload?: Record<string, unknown>): string {
+  private formatJsonMessage(level: Level, messageText: string, payload?: unknown): string {
+    const payloadObject = payload ? { payload } : undefined
+
     const message = {
-      ...payload,
+      ...payloadObject,
       message: messageText,
       severity: level,
       level: LevelNumber[level],
@@ -151,9 +152,9 @@ export class Logger {
     return `${this.stringify(message)}${os.EOL}`
   }
 
-  private formatPlainTextMessage(level: Level, messageText: string, payload?: Record<string, unknown>): string {
+  private formatPlainTextMessage(level: Level, messageText: string, payload?: unknown): string {
     const msgFn = chalk.bold.hex(Colors[level].toString())
-    const stringMsg = (payload && this.stringify(payload)) ?? ''
+    const stringMsg = payload ? this.stringify(payload) : ''
     const msg = `${msgFn(level.toLowerCase())}: ${messageText} ${stringMsg}`
     return `${msg}${os.EOL}`
   }
