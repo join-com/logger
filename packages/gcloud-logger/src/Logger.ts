@@ -117,7 +117,7 @@ export class Logger {
       return
     }
 
-    const payloadObject = payload && this.isObject(payload) ? payload : { payload }
+    const payloadObject = (payload && { payload }) as Record<string, unknown>
     this.print(level, this.formatMessage(level, messageText, payloadObject))
   }
 
@@ -164,10 +164,6 @@ export class Logger {
     } else {
       process.stdout.write(msg)
     }
-  }
-
-  private isObject = (obj: unknown): obj is Record<string, unknown> => {
-    return obj instanceof Object && obj.constructor === Object
   }
 
   private stringify(message: unknown) {
