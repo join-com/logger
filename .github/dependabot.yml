@@ -1,0 +1,12 @@
+version: 2
+updates:
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    allow:
+      - dependency-type: 'production'
+    rebase-strategy: 'disabled'
+    commit-message:
+      prefix: "build"
+      include: "scope"
