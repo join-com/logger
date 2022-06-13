@@ -2,7 +2,7 @@
   "license": "UNLICENSED",
   "private": true,
   "workspaces": [
-    "packages/gcloud-apollo-express-logger"
+    "packages/gcloud-logger"
   ],
   "scripts": {
     "build": "yarn workspaces run build",
@@ -17,5 +17,11 @@
   "devDependencies": {
     "semantic-release": "^18.0.1",
     "semantic-release-monorepo": "^7.0.5"
+  },
+  "release": {
+    "branches": [
+      { "name": "master" },
+      { "name": "alpha", "prerelease": true }
+    ]
   }
 }

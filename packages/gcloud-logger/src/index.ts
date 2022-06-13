@@ -1,7 +1,7 @@
-import { Logger } from './Logger';
+import { Logger } from './Logger'
 
-const USE_JSON_FORMAT = process.env.NODE_ENV === 'production';
-const logger = new Logger(USE_JSON_FORMAT, process.env.LOG_LEVEL);
+const USE_JSON_FORMAT = process.env['NODE_ENV'] === 'production'
+const logger = new Logger(USE_JSON_FORMAT, process.env['LOG_LEVEL'])
 
-export { Logger, Level } from './Logger';
-export default logger;
+export { Logger, Level } from './Logger'
+export default logger
