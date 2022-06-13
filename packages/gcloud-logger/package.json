@@ -27,7 +27,7 @@
     "test": "echo not tests"
   },
   "dependencies": {
-    "chalk": "^5.0.1"
+    "chalk": "^4.1.2"
   },
   "devDependencies": {
     "@join-private/eslint-config-backend": "^1.1.2",
