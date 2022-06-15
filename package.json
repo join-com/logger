@@ -19,5 +19,7 @@
     "semantic-release": "^18.0.1",
     "semantic-release-monorepo": "^7.0.5"
   },
-  "dependencies": {}
+  "dependencies": {
+    "conventional-changelog-conventionalcommits": "^5.0.0"
+  }
 }
