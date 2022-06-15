@@ -3,7 +3,8 @@
   "private": true,
   "workspaces": [
     "packages/gcloud-logger",
-    "packages/gcloud-typeorm-logger"
+    "packages/gcloud-typeorm-logger",
+    "packages/gcloud-express-logger"
   ],
   "scripts": {
     "build": "yarn workspaces run build",

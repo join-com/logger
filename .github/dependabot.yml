@@ -3,10 +3,9 @@ updates:
   - package-ecosystem: 'npm'
     directory: '/'
     schedule:
-      interval: 'monthly'
+      interval: 'daily'
     allow:
       - dependency-type: 'production'
     rebase-strategy: 'disabled'
     commit-message:
-      prefix: "build"
-      include: "scope"
+      prefix: "deps"

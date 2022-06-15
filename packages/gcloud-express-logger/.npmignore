@@ -1,0 +1,10 @@
+coverage/
+node_modules/
+src/
+.eslintignore
+.eslintrc.js
+.npmignore
+jest.config.js
+tsconfig.prod.tsbuildinfo
+tsconfig.prod.json
+tsconfig.json
