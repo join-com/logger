@@ -9,7 +9,7 @@
     "build": "yarn workspaces run build",
     "lint": "yarn workspaces run lint",
     "test": "yarn workspaces run test",
-    "release": "yarn workspaces run semantic-release -e semantic-release-monorepo",
+    "release": "yarn workspaces run semantic-release -e semantic-release-monorepo -d",
     "postinstall": "if [ -d .git ]; then git config core.hooksPath .hooks; fi"
   },
   "engines": {
@@ -18,11 +18,5 @@
   "devDependencies": {
     "semantic-release": "^18.0.1",
     "semantic-release-monorepo": "^7.0.5"
-  },
-  "release": {
-    "branches": [
-      { "name": "master" },
-      { "name": "alpha", "prerelease": true }
-    ]
   }
 }
