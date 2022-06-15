@@ -9,7 +9,7 @@
       {
         "preset": "conventionalcommits",
         "releaseRules": [
-          { "type": "deps", "release": "patch" }
+          { "type": "build", "scope": "deps", "release": "patch" }
         ]
       }
     ],
@@ -21,7 +21,7 @@
           "types": [
             { "type": "feat", "section": "Features" },
             { "type": "fix", "section": "Bug Fixes" },
-            { "type": "deps", "section": "Dependencies" },
+            { "type": "build", "section": "Dependencies" },
             { "type": "chore", "hidden": true },
             { "type": "docs", "hidden": true },
             { "type": "style", "hidden": true },

@@ -8,4 +8,5 @@ updates:
       - dependency-type: 'production'
     rebase-strategy: 'disabled'
     commit-message:
-      prefix: "deps"
+      prefix: "build"
+      include: "scope"
