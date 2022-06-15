@@ -11,8 +11,8 @@
   },
   "keywords": [
     "gcloud",
-    "logger",
     "typeorm",
+    "logger",
     "google cloud platform",
     "typescript",
     "sql"

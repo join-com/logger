@@ -11,8 +11,8 @@
   },
   "keywords": [
     "gcloud",
-    "logger",
     "typescript",
+    "logger",
     "json"
   ],
   "engines": {
