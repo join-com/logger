@@ -1,6 +1,5 @@
-import gcloudLogger, { Logger } from '@join-com/gcloud-logger';
-import { NextFunction, Request, Response } from 'express';
-import onFinished from 'on-finished';
+import { NextFunction, Request, Response } from 'express'
+import onFinished from 'on-finished'
 
 const requestLogMessage = (req: Request, res: Response, ms: number) => ({
   httpRequest: {
@@ -12,41 +11,38 @@ const requestLogMessage = (req: Request, res: Response, ms: number) => ({
     release: req.headers['release'],
     transactionId: req.headers['transaction-id'],
     transactionName: req.headers['transaction-name'],
-    referer: req.headers.referer || req.headers.referrer,
+    referer: req.headers.referer,
     latency: `${ms.toFixed(3)}ms`,
     path: req.route && req.route.path,
   },
   query: req.query,
   reqBody: req.body,
   requestTime: ms,
-});
+})
 
-export const requestLogger = (
-  logger: Logger = gcloudLogger,
-  startTrace?: (req: Request) => void,
-) => (req: Request, res: Response, next: NextFunction) => {
-  const startTime = process.hrtime();
+export interface IGcloudLogger {
+  info: (message: string, payload?: unknown) => void
+  warn: (message: string, payload?: unknown) => void
+  error: (message: string, payload?: unknown) => void
+}
+
+export const requestLogger = (logger: IGcloudLogger) => (req: Request, res: Response, next: NextFunction) => {
+  const startTime = process.hrtime()
 
   const logRequest = () => {
-    if (startTrace) {
-      startTrace(req);
-    }
-    const diff = process.hrtime(startTime);
-    const ms = diff[0] * 1e3 + diff[1] * 1e-6;
-    const message = requestLogMessage(req, res, ms);
+    const diff = process.hrtime(startTime)
+    const ms = diff[0] * 1e3 + diff[1] * 1e-6
+    const message = requestLogMessage(req, res, ms)
     if (res.statusCode >= 500) {
-      logger.error(req.path, message);
+      logger.error(req.path, message)
     } else if (res.statusCode >= 400) {
-      logger.warn(req.path, message);
+      logger.warn(req.path, message)
     } else {
-      logger.info(req.path, message);
+      logger.info(req.path, message)
     }
-  };
-  if (req.originalUrl !== '/healthz' && req.originalUrl !== '/readiness') {
-    onFinished(res, logRequest);
   }
-  next();
-};
-
-export { NextFunction, Request, Response } from 'express';
-export default requestLogger;
+  if (req.originalUrl !== '/healthz' && req.originalUrl !== '/readiness') {
+    onFinished(res, logRequest)
+  }
+  next()
+}

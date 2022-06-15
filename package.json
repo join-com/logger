@@ -3,13 +3,14 @@
   "private": true,
   "workspaces": [
     "packages/gcloud-logger",
-    "packages/gcloud-typeorm-logger"
+    "packages/gcloud-typeorm-logger",
+    "packages/gcloud-express-logger"
   ],
   "scripts": {
     "build": "yarn workspaces run build",
     "lint": "yarn workspaces run lint",
     "test": "yarn workspaces run test",
-    "release": "yarn workspaces run semantic-release -e semantic-release-monorepo",
+    "release": "yarn workspaces run semantic-release -e semantic-release-monorepo -d",
     "postinstall": "if [ -d .git ]; then git config core.hooksPath .hooks; fi"
   },
   "engines": {
