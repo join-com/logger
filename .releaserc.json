@@ -32,13 +32,7 @@
         }
       }
     ],
-    [
-      "@semantic-release/npm",
-      {
-        "npmPublish": true,
-        "tarballDir": "dist"
-      }
-    ],
+    "@semantic-release/npm",
     [
       "@semantic-release/github",
       {
