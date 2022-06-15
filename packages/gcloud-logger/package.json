@@ -11,8 +11,8 @@
   },
   "keywords": [
     "gcloud",
-    "typescript",
     "logger",
+    "typescript",
     "json"
   ],
   "engines": {
@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "chalk": "^4.1.2",
-    "serialize-error": "~11.0.0"
+    "serialize-error": "^11.0.0"
   },
   "devDependencies": {
     "@join-private/eslint-config-backend": "^1.1.2",
