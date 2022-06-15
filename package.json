@@ -2,7 +2,8 @@
   "license": "UNLICENSED",
   "private": true,
   "workspaces": [
-    "packages/gcloud-logger"
+    "packages/gcloud-logger",
+    "packages/gcloud-typeorm-logger"
   ],
   "scripts": {
     "build": "yarn workspaces run build",
@@ -15,13 +16,8 @@
     "node": ">=14.0.0"
   },
   "devDependencies": {
+    "conventional-changelog-conventionalcommits": "^5.0.0",
     "semantic-release": "^18.0.1",
     "semantic-release-monorepo": "^7.0.5"
-  },
-  "release": {
-    "branches": [
-      { "name": "master" },
-      { "name": "alpha", "prerelease": true }
-    ]
   }
 }

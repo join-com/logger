@@ -1,61 +1,54 @@
-import gcloudLogger, { Logger } from '@join-com/gcloud-logger';
-import { Level } from '@join-com/gcloud-logger';
+export interface IGcloudLogger {
+  debug: (message: string, payload?: unknown) => void
+  info: (message: string, payload?: unknown) => void
+  warn: (message: string, payload?: unknown) => void
+  error: (message: string, payload?: unknown) => void
+}
 
 export class SqlLogger {
-  private readonly logQueries: boolean;
-  constructor(
-    logQueries: boolean = false,
-    private readonly logger: Logger = gcloudLogger,
-  ) {
-    this.logQueries = logQueries;
+  constructor(private readonly logQueries: boolean, private readonly logger: IGcloudLogger) {
+    this.logQueries = logQueries
   }
+
   public logQuery(query: string, parameters?: any[], _?: any) {
     if (!this.logQueries) {
-      return;
+      return
     }
-    const level = query === 'SELECT 1 as result' ? Level.DEBUG : Level.INFO;
-    this.logger.log(level, `executing query: ${query}`, { parameters });
+
+    if (query !== 'SELECT 1 as result') {
+      this.logger.info(`executing query: ${query}`, { parameters })
+    } else {
+      this.logger.debug(`executing query: ${query}`)
+    }
   }
 
-  public logQueryError(
-    error: string,
-    query: string,
-    parameters?: any[],
-    _?: any,
-  ) {
-    this.logger.error(`query failed: ${query}`, { error, parameters });
+  public logQueryError(error: string, query: string, parameters?: any[], _?: any) {
+    this.logger.error(`query failed: ${query}`, { error, parameters })
   }
 
-  public logQuerySlow(
-    time: number,
-    query: string,
-    parameters?: any[],
-    _?: any,
-  ) {
-    this.logger.warn(`query is slow: ${query}`, { time, parameters });
+  public logQuerySlow(time: number, query: string, parameters?: any[], _?: any) {
+    this.logger.warn(`query is slow: ${query}`, { time, parameters })
   }
 
   public logSchemaBuild(message: string, _?: any) {
-    this.logger.info(message);
+    this.logger.info(message)
   }
 
   public logMigration(message: string, _?: any) {
-    this.logger.info(message);
+    this.logger.info(message)
   }
 
   public log(level: 'log' | 'info' | 'warn', message: any, _?: any) {
     switch (level) {
       case 'log':
-        this.logger.debug(message);
-        break;
+        this.logger.debug(message)
+        break
       case 'info':
-        this.logger.info(message);
-        break;
+        this.logger.info(message)
+        break
       case 'warn':
-        this.logger.warn(message);
-        break;
+        this.logger.warn(message)
+        break
     }
   }
 }
-
-export default SqlLogger;

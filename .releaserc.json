@@ -1,0 +1,37 @@
+{
+  "branches": [
+    { "name": "master" },
+    { "name": "alpha", "prerelease": true }
+  ],
+  "plugins": [
+    [
+      "@semantic-release/commit-analyzer",
+      {
+        "preset": "conventionalcommits",
+        "releaseRules": [
+          { "type": "deps", "release": "patch" }
+        ]
+      }
+    ],
+    [
+      "@semantic-release/release-notes-generator",
+      {
+        "preset": "conventionalcommits",
+        "presetConfig": {
+          "types": [
+            {"type": "deps", "section": "Dependencies"}
+          ]
+        }
+      }
+    ],
+    "@semantic-release/npm",
+    [
+      "@semantic-release/github",
+      {
+        "labels": false,
+        "releasedLabels": false,
+        "successComment": false
+      }
+    ]
+  ]
+}
