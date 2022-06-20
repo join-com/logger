@@ -138,7 +138,7 @@ export class Logger {
   }
 
   private formatJsonMessage(level: Level, messageText: string, payload?: unknown): string {
-    const payloadObject = payload ? { payload } : undefined
+    const payloadObject = this.getPayloadObject(payload)
 
     const message = {
       ...payloadObject,
@@ -182,5 +182,21 @@ export class Logger {
       return false
     }
     return typeof err === 'object' && 'message' in err
+  }
+
+  private getPayloadObject(payload?: unknown): Record<string, unknown> {
+    if (!payload) {
+      return {}
+    }
+
+    if (this.isObject(payload)) {
+      return payload
+    }
+
+    return { payload }
+  }
+
+  private isObject = (obj: unknown): obj is Record<string, unknown> => {
+    return obj instanceof Object && obj.constructor === Object
   }
 }
