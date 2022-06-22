@@ -1,7 +1,5 @@
 import * as os from 'os'
-import * as util from 'util'
 import chalk from 'chalk'
-import { serializeError } from 'serialize-error'
 
 enum LevelNumber {
   DEFAULT = 0,
@@ -118,17 +116,11 @@ export class Logger {
   }
 
   public reportError(err: unknown) {
-    const fullError = util.inspect(err, { showHidden: false, depth: null })
-
-    this.error(this.getMessage(err), { fullError })
+    this.error(this.getMessage(err), err)
   }
 
   private getMessage(err: unknown) {
-    if (Logger.isError(err)) {
-      return err.stack || err.message
-    }
-
-    return this.stringify(err)
+    return this.isError(err) ? err.message : 'Invalid error reported'
   }
 
   private formatMessage(level: Level, messageText: string, payload?: unknown): string {
@@ -165,6 +157,41 @@ export class Logger {
   }
 
   private stringify(message: unknown) {
+    // https://gist.github.com/saitonakamura/d51aa672c929e35cc81fa5a0e31f12a9
+    const replaceCircular = (obj: any, alreadySeen = new WeakSet()): any => {
+      if (typeof obj !== 'object') {
+        return obj
+      }
+
+      if (!obj) {
+        return obj
+      }
+
+      if (alreadySeen.has(obj)) {
+        return '[CIRCULAR]'
+      }
+
+      alreadySeen.add(obj)
+
+      if (Array.isArray(obj)) {
+        return obj.map(item => replaceCircular(item, alreadySeen))
+      }
+
+      const keys = Object.getOwnPropertyNames(obj)
+      if (keys.length === 0) {
+        return obj
+      }
+
+      const newObj: Record<string, unknown> = {}
+      keys.forEach(key => {
+        const val = replaceCircular(obj[key], alreadySeen)
+        newObj[key] = val
+      })
+
+      alreadySeen.delete(obj)
+      return newObj
+    }
+
     const excludeSensitive = (key: string, value: any) => {
       // exclude sensitive values
       if (this.excludeKeys.indexOf(key) !== -1) {
@@ -174,19 +201,23 @@ export class Logger {
       return value
     }
 
-    return JSON.stringify(serializeError(message), excludeSensitive)
+    return JSON.stringify(replaceCircular(message), excludeSensitive)
   }
 
-  private static isError(err: unknown): err is Error {
+  private isError(err: unknown): err is Error {
     if (!err) {
       return false
     }
-    return typeof err === 'object' && 'message' in err
+    return typeof err === 'object' && 'message' in err && 'stack' in err
   }
 
   private getPayloadObject(payload?: unknown): Record<string, unknown> {
     if (!payload) {
       return {}
+    }
+
+    if (this.isError(payload)) {
+      return { error: payload }
     }
 
     if (this.isObject(payload)) {
