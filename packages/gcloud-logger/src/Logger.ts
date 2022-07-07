@@ -1,4 +1,5 @@
 import * as os from 'os'
+import serializeError from '@stdlib/error-to-json'
 import chalk from 'chalk'
 
 enum LevelNumber {
@@ -176,7 +177,11 @@ export class Logger {
         return obj.map(item => replaceCircular(item, alreadySeen))
       }
 
-      const keys = Object.getOwnPropertyNames(obj)
+      if (obj instanceof Error) {
+        return serializeError(obj)
+      }
+
+      const keys = Object.keys(obj)
       if (keys.length === 0) {
         return obj
       }
