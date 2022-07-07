@@ -177,11 +177,8 @@ export class Logger {
         return obj.map(item => replaceCircular(item, alreadySeen))
       }
 
-      if (obj instanceof Error) {
-        return serializeError(obj)
-      }
-
-      const keys = Object.keys(obj)
+      const serializedObj = obj instanceof Error ? serializeError(obj) : obj
+      const keys = Object.keys(serializedObj)
       if (keys.length === 0) {
         return obj
       }
