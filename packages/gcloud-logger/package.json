@@ -19,8 +19,8 @@
     "node": ">=14.0.0"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.prod.json",
     "lint": "yarn lint:tsc && yarn lint:eslint",
+    "build": "tsc -p tsconfig.prod.json",
     "lint:eslint": "eslint . --ext .ts --max-warnings 0",
     "lint:tsc": "tsc --noEmit",
     "prepublishOnly": "yarn lint && yarn build",
