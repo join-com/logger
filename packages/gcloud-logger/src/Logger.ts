@@ -173,6 +173,14 @@ export class Logger {
 
       alreadySeen.add(obj)
 
+      if (typeof obj.pipe === 'function') {
+        return '[object Stream]'
+      }
+
+      if (Buffer.isBuffer(obj)) {
+        return '[object Buffer]'
+      }
+
       if (Array.isArray(obj)) {
         return obj.map(item => replaceCircular(item, alreadySeen))
       }
