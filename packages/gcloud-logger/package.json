@@ -27,7 +27,6 @@
     "test": "echo not tests"
   },
   "dependencies": {
-    "@stdlib/error-to-json": "^0.0.7",
     "chalk": "^4.1.2"
   },
   "devDependencies": {
