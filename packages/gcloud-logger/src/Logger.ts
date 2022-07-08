@@ -1,5 +1,4 @@
 import * as os from 'os'
-import serializeError from '@stdlib/error-to-json'
 import chalk from 'chalk'
 
 enum LevelNumber {
@@ -185,7 +184,7 @@ export class Logger {
         return obj.map(item => replaceCircular(item, alreadySeen))
       }
 
-      const serializedObj = obj instanceof Error ? serializeError(obj) : obj
+      const serializedObj = obj instanceof Error ? this.serializeError(obj) : obj
       const keys = Object.keys(serializedObj)
       if (keys.length === 0) {
         return obj
@@ -236,7 +235,42 @@ export class Logger {
     return { payload }
   }
 
-  private isObject = (obj: unknown): obj is Record<string, unknown> => {
+  private serializeError<E extends Error>(error: E): Record<string, unknown> {
+    const serializedError: Record<string, unknown> = {
+      name: error.name,
+      message: error.message,
+    }
+
+    if (error.stack) {
+      serializedError['stack'] = error.stack
+    }
+
+    // Possible Node.js (system error) properties...
+    if (this.hasProperty('code', error)) {
+      serializedError['code'] = error.code
+    }
+
+    if (this.hasProperty('errno', error)) {
+      serializedError['errno'] = error.errno
+    }
+
+    if (this.hasProperty('syscall', error)) {
+      serializedError['syscall'] = error.syscall
+    }
+
+    // Any enumerable properties...
+    for (const key in error) {
+      serializedError[key] = error[key]
+    }
+
+    return serializedError
+  }
+
+  private hasProperty<T extends string>(property: T, obj: unknown): obj is { [property in T]: unknown } {
+    return Boolean(obj && typeof obj === 'object' && property in obj)
+  }
+
+  private isObject(obj: unknown): obj is Record<string, unknown> {
     return obj instanceof Object && obj.constructor === Object
   }
 }
