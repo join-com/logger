@@ -27,7 +27,9 @@
     "test": "echo not tests"
   },
   "dependencies": {
-    "chalk": "^4.1.2"
+    "chalk": "^4.1.2",
+    "pino": "^8.11.0",
+    "pino-pretty": "^10.0.0"
   },
   "devDependencies": {
     "@join-private/eslint-config-backend": "^1.1.2",
