@@ -46,7 +46,6 @@ export class Logger {
         },
       },
     }
-
     const transport = usePrettyPrint?  { target: 'pino-pretty' } : { target: '' }
     this.logger = Pino({
       level: logLevelStarts,
