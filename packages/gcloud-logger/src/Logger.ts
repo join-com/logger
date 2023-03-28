@@ -26,15 +26,35 @@ const PinoLevelToCloudLevelLookup = new Map<string,number>(Object.entries({
   fatal: 600,
 }));
 
+const OldLogLevelToPinoLevel = new Map<string,string>(Object.entries({
+  DEFAULT: 'info',
+  DEBUG: 'debug',
+  INFO: 'info',
+  NOTICE: 'info',
+  WARNING: 'warn',
+  ERROR: 'error',
+  CRITICAL: 'fatal',
+  ALERT: 'fatal',
+  EMERGENCY: 'fatal'
+}));
+
 export class Logger {
   private readonly logger: Pino.Logger
 
   constructor(
-    usePrettyPrint: boolean,
+    disablePrettyPrint: boolean,
     logLevelStarts?: string,
     excludeKeys = ['password', 'token', 'newPassword', 'oldPassword']
   ) {
-    const defaultPinoConf = {
+    let logLevel = logLevelStarts || 'info'
+    if (!PinoLevelToCloudLevelLookup.has(logLevel)) {
+      logLevel = OldLogLevelToPinoLevel.get(logLevel) || 'info'
+    }
+    const pinoConfig: {[key: string]: any} = {
+      base: undefined, // removes pid and hostname fields from json logs
+      timestamp: false, // removes timestamp, as it's provided by google cloud
+      level: logLevel,
+      redact: excludeKeys,
       messageKey: 'message',
       formatters: {
         messageKey: 'message',
@@ -46,14 +66,10 @@ export class Logger {
         },
       },
     }
-
-    const transport = usePrettyPrint?  { target: 'pino-pretty' } : { target: '' }
-    this.logger = Pino({
-      level: logLevelStarts,
-      redact: excludeKeys,
-      defaultPinoConf,
-      transport,
-    })
+    if (!disablePrettyPrint) {
+      pinoConfig['transport'] = { target: 'pino-pretty' }
+    }
+    this.logger = Pino(pinoConfig)
   }
 
   public debug(message: string, payload?: unknown) {
@@ -72,7 +88,7 @@ export class Logger {
     this.logger.error(payload, message)
   }
 
-  public critical(message: string, payload?: unknown) {
+  public fatal(message: string, payload?: unknown) {
     this.logger.fatal(payload, message)
   }
 
