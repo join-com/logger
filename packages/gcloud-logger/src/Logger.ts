@@ -71,6 +71,7 @@ export class Logger {
     private readonly useJsonFormat: boolean,
     logLevelStarts?: string,
     private readonly excludeKeys = ['password', 'token', 'newPassword', 'oldPassword'],
+    private readonly maxFieldLength = 1000,
   ) {
     this.logLevelNumber = logLevel(logLevelStarts)
   }
@@ -158,6 +159,11 @@ export class Logger {
   private stringify(message: unknown) {
     // https://gist.github.com/saitonakamura/d51aa672c929e35cc81fa5a0e31f12a9
     const replaceCircular = (obj: any, alreadySeen = new WeakSet()): any => {
+      if (typeof obj === 'string') {
+        if (obj.length > this.maxFieldLength) {
+          return obj.substring(0, this.maxFieldLength) + '...TRUNCATED'
+        }
+      }
       if (typeof obj !== 'object') {
         return obj
       }
@@ -192,8 +198,7 @@ export class Logger {
 
       const newObj: Record<string, unknown> = {}
       keys.forEach(key => {
-        const val = replaceCircular(obj[key], alreadySeen)
-        newObj[key] = val
+        newObj[key] = replaceCircular(obj[key], alreadySeen)
       })
 
       alreadySeen.delete(obj)
