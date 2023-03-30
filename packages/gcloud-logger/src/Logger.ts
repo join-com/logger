@@ -143,7 +143,7 @@ export class Logger {
   }
 
   private getMaxLength(level: Level) {
-    return logLevel(level) < LevelNumber.EMERGENCY
+    return logLevel(level) < LevelNumber.WARNING
       ? this.maxFieldLength
       : maxFieldLengthForError
   }
