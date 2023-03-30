@@ -71,7 +71,7 @@ export class Logger {
     private readonly useJsonFormat: boolean,
     logLevelStarts?: string,
     private readonly excludeKeys = ['password', 'token', 'newPassword', 'oldPassword'],
-    private readonly maxFieldLength = 1000,
+    private readonly maxFieldLength = 100,
   ) {
     this.logLevelNumber = logLevel(logLevelStarts)
   }
