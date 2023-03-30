@@ -1,8 +1,10 @@
 {
   "extends": "../../tsconfig.json",
-  "include": ["./src/**/*"],
+  "include": ["./src/**/*",
+    "./__tests__"
+  ],
   "compilerOptions": {
     "noEmit": true,
-    "types": ["node"],
-  }
+    "types": ["node","jest"],
+  },
 }
