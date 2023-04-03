@@ -38,6 +38,7 @@ enum Colors {
 }
 
 const errorOutputStartsFrom = LevelNumber.ERROR
+const maxFieldLengthForError = 4000
 
 const logLevel = (level: string | undefined) => {
   switch (level) {
@@ -71,7 +72,7 @@ export class Logger {
     private readonly useJsonFormat: boolean,
     logLevelStarts?: string,
     private readonly excludeKeys = ['password', 'token', 'newPassword', 'oldPassword'],
-    private readonly maxFieldLength = 100,
+    private readonly maxFieldLength = 1000,
   ) {
     this.logLevelNumber = logLevel(logLevelStarts)
   }
@@ -138,12 +139,18 @@ export class Logger {
       severity: level,
       level: LevelNumber[level],
     }
-    return `${this.stringify(message)}${os.EOL}`
+    return `${this.stringify(message, this.getMaxLength(level))}${os.EOL}`
+  }
+
+  private getMaxLength(level: Level) {
+    return logLevel(level) < LevelNumber.WARNING
+      ? this.maxFieldLength
+      : maxFieldLengthForError
   }
 
   private formatPlainTextMessage(level: Level, messageText: string, payload?: Record<string, unknown>): string {
     const msgFn = chalk.bold.hex(Colors[level].toString())
-    const stringMsg = payload ? this.stringify(payload) : ''
+    const stringMsg = payload ? this.stringify(payload, this.getMaxLength(level)) : ''
     const msg = `${msgFn(level.toLowerCase())}: ${messageText} ${stringMsg}`
     return `${msg}${os.EOL}`
   }
@@ -156,11 +163,11 @@ export class Logger {
     }
   }
 
-  private stringify(message: unknown) {
+  private stringify(message: unknown, maxLength: number) {
     // https://gist.github.com/saitonakamura/d51aa672c929e35cc81fa5a0e31f12a9
     const replaceCircular = (obj: any, alreadySeen = new WeakSet()): any => {
       if (typeof obj === 'string') {
-        if (obj.length > this.maxFieldLength) {
+        if (obj.length > maxLength) {
           return obj.substring(0, this.maxFieldLength) + '...TRUNCATED'
         }
       }
