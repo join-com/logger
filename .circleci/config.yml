@@ -9,7 +9,7 @@ defaults: &defaults
   working_directory: /logger
   resource_class: small
   docker:
-    - image: node:16.13.1
+    - image: node:16.20.0
       <<: *docker-auth
 
 references:
