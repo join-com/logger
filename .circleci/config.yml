@@ -9,14 +9,17 @@ defaults: &defaults
   working_directory: /logger
   resource_class: small
   docker:
-    - image: node:16.13.1
+    - image: node:16.20.0
       <<: *docker-auth
 
 references:
   auth_with_registry: &auth_with_registry
     run:
-      name: Authenticate with registry
-      command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > .npmrc
+      name: Authenticate with GAR (.npmrc)
+      command: |
+        echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" >> .npmrc
+        echo $GCLOUD_SERVICE_KEY_CI_DEV | base64 -d > ${HOME}/gcloud-service-key.json
+        GOOGLE_APPLICATION_CREDENTIALS=${HOME}/gcloud-service-key.json yarn artifactregistry-login --repo-config=.npmrc
 
   remove_auth_with_registry: &remove_auth_with_registry
     run:

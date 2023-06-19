@@ -11,6 +11,8 @@
     "lint": "yarn workspaces run lint",
     "test": "yarn workspaces run test",
     "release": "yarn workspaces run semantic-release -e semantic-release-monorepo",
+    "artifactregistry-login": "npm_config_registry=https://registry.npmjs.org/ npx google-artifactregistry-auth",
+    "preinstall": "[ \"$CI\" != \"true\" ] && yarn artifactregistry-login || true",
     "postinstall": "if [ -d .git ]; then git config core.hooksPath .hooks; fi"
   },
   "engines": {
