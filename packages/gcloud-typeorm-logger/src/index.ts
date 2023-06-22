@@ -26,8 +26,8 @@ export class SqlLogger {
     this.logger.error(`query failed: ${query}`, { error, parameters })
   }
 
-  public logQuerySlow(time: number, query: string, parameters?: any[], _?: any) {
-    this.logger.warn(`query is slow: ${query}`, { time, parameters })
+  public logQuerySlow(queryTime: number, query: string, parameters?: any[], _?: any) {
+    this.logger.warn(`query is slow: ${query}`, { queryTime, parameters })
   }
 
   public logSchemaBuild(message: string, _?: any) {
