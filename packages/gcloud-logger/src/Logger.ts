@@ -38,7 +38,7 @@ enum Colors {
 }
 
 const errorOutputStartsFrom = LevelNumber.ERROR
-const maxFieldLengthForError = 8000
+const maxFieldLengthForError = 4000
 
 const logLevel = (level: string | undefined) => {
   switch (level) {
