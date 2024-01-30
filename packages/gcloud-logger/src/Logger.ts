@@ -168,7 +168,7 @@ export class Logger {
     const replaceCircular = (obj: any, alreadySeen = new WeakSet()): any => {
       if (typeof obj === 'string') {
         if (obj.length > maxLength) {
-          return obj.substring(0, this.maxFieldLength) + '...TRUNCATED'
+          return obj.substring(0, maxLength) + '...TRUNCATED'
         }
       }
       if (typeof obj !== 'object') {
