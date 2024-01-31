@@ -26,7 +26,7 @@ export interface IGcloudLogger {
   error: (message: string, payload?: unknown) => void
 }
 
-export const requestLogger = (logger: IGcloudLogger) => (req: Request, res: Response, next: NextFunction) => {
+export const requestLogger = (logger: IGcloudLogger) => (req: Request, res: Response, next: NextFunction): void => {
   const startTime = process.hrtime()
 
   const logRequest = () => {

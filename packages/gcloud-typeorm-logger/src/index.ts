@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 export interface IGcloudLogger {
   debug: (message: string, payload?: unknown) => void
   info: (message: string, payload?: unknown) => void
@@ -10,7 +11,7 @@ export class SqlLogger {
     this.logQueries = logQueries
   }
 
-  public logQuery(query: string, parameters?: any[], _?: any) {
+  public logQuery(query: string, parameters?: any[], _?: never): void {
     if (!this.logQueries) {
       return
     }
@@ -22,23 +23,23 @@ export class SqlLogger {
     }
   }
 
-  public logQueryError(error: string, query: string, parameters?: any[], _?: any) {
+  public logQueryError(error: string, query: string, parameters?: any[], _?: never): void {
     this.logger.error(`query failed: ${query}`, { error, parameters })
   }
 
-  public logQuerySlow(queryTime: number, query: string, parameters?: any[], _?: any) {
+  public logQuerySlow(queryTime: number, query: string, parameters?: any[], _?: never): void {
     this.logger.warn(`query is slow: ${query}`, { queryTime, parameters })
   }
 
-  public logSchemaBuild(message: string, _?: any) {
+  public logSchemaBuild(message: string, _?: never): void {
     this.logger.info(message)
   }
 
-  public logMigration(message: string, _?: any) {
+  public logMigration(message: string, _?: never): void {
     this.logger.info(message)
   }
 
-  public log(level: 'log' | 'info' | 'warn', message: any, _?: any) {
+  public log(level: 'log' | 'info' | 'warn', message: any, _?: never): void {
     switch (level) {
       case 'log':
         this.logger.debug(message)

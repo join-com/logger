@@ -11,6 +11,6 @@ export const logger = new Logger(
   parseInt(process.env['LOG_MAX_FIELD_LENGTH'] ?? DEFAULT_MAX_LENGTH, 10),
 )
 
-export const reportError = (e: unknown) => {
+export const reportError = (e: unknown): void => {
   logger.reportError(e)
 }
