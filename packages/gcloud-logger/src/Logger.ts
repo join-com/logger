@@ -77,39 +77,39 @@ export class Logger {
     this.logLevelNumber = logLevel(logLevelStarts)
   }
 
-  public debug(message: string, payload?: unknown) {
+  public debug(message: string, payload?: unknown): void {
     this.log(Level.DEBUG, message, payload)
   }
 
-  public info(message: string, payload?: unknown) {
+  public info(message: string, payload?: unknown): void {
     this.log(Level.INFO, message, payload)
   }
 
-  public notice(message: string, payload?: unknown) {
+  public notice(message: string, payload?: unknown): void {
     this.log(Level.NOTICE, message, payload)
   }
 
-  public warn(message: string, payload?: unknown) {
+  public warn(message: string, payload?: unknown): void {
     this.log(Level.WARNING, message, payload)
   }
 
-  public error(message: string, payload?: unknown) {
+  public error(message: string, payload?: unknown): void {
     this.log(Level.ERROR, message, payload)
   }
 
-  public crit(message: string, payload?: unknown) {
+  public crit(message: string, payload?: unknown): void {
     this.log(Level.CRITICAL, message, payload)
   }
 
-  public alert(message: string, payload?: unknown) {
+  public alert(message: string, payload?: unknown): void {
     this.log(Level.ALERT, message, payload)
   }
 
-  public emerg(message: string, payload?: unknown) {
+  public emerg(message: string, payload?: unknown): void {
     this.log(Level.EMERGENCY, message, payload)
   }
 
-  public log(level: Level | Level.DEFAULT, messageText: string, payload?: unknown) {
+  public log(level: Level | Level.DEFAULT, messageText: string, payload?: unknown): void {
     if (LevelNumber[level] < this.logLevelNumber) {
       return
     }
@@ -117,7 +117,7 @@ export class Logger {
     this.print(level, this.formatMessage(level, messageText, payload))
   }
 
-  public reportError(err: unknown) {
+  public reportError(err: unknown): void {
     this.error(this.getMessage(err), err)
   }
 
