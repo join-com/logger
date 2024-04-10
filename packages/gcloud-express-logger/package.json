@@ -10,9 +10,9 @@
     "url": "git+https://github.com/join-com/logger.git"
   },
   "keywords": [
+    "logger",
     "gcloud",
     "express",
-    "logger",
     "google cloud platform",
     "typescript"
   ],
