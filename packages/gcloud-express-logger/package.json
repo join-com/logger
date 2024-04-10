@@ -11,8 +11,8 @@
   },
   "keywords": [
     "gcloud",
-    "express",
     "logger",
+    "express",
     "google cloud platform",
     "typescript"
   ],
