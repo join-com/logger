@@ -41,7 +41,12 @@ export const requestLogger = (logger: IGcloudLogger) => (req: Request, res: Resp
       logger.info(req.path, message)
     }
   }
-  if (req.originalUrl !== '/healthz' && req.originalUrl !== '/readiness') {
+  if (
+    req.originalUrl !== '/healthz' &&
+    req.originalUrl !== '/readiness' &&
+    req.originalUrl !== '/api/healthz' &&
+    req.originalUrl !== '/api/readiness'
+  ) {
     onFinished(res, logRequest)
   }
   next()
