@@ -56,7 +56,7 @@ describe('requestLogger', () => {
 
     it('logs request', async () => {
       await request(app).post('/graphql').send({ query }).expect(200)
-      expect(loggerMock.info).toHaveBeenCalledWith('/graphql', {
+      expect(loggerMock.info).toHaveBeenCalledWith('/graphql ListCompanies', {
         httpRequest: expect.objectContaining({
           requestMethod: 'POST',
           requestUrl: '/graphql',
@@ -69,11 +69,25 @@ describe('requestLogger', () => {
     })
 
     it('logs operation name if provided', async () => {
-      const operationName = 'ListCompanies'
+      const operationName = 'ListCompaniesOperation'
 
       await request(app).post('/graphql').send({ query, operationName }).expect(200)
 
       expect(loggerMock.info).toHaveBeenCalledWith(`/graphql ${operationName}`, expect.any(Object))
+    })
+
+    it('logs mutation name', async () => {
+      const query = `
+        mutation RegisterCompany {
+          companies {
+            id
+          }
+        }
+      `
+
+      await request(app).post('/graphql').send({ query }).expect(200)
+
+      expect(loggerMock.info).toHaveBeenCalledWith('/graphql RegisterCompany', expect.any(Object))
     })
   })
 })

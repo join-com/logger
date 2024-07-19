@@ -3,4 +3,5 @@ module.exports = {
   testPathIgnorePatterns: ['/node_modules/', 'dist', '.eslintrc.js', '/support/'],
   runtime: '@side/jest-runtime',
   transform: { '^.+\\.tsx?$': '@swc/jest' },
+  resetMocks: true,
 }

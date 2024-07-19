@@ -23,6 +23,13 @@ const requestOperationName = (req: Request): string | undefined => {
   if ('operationName' in req.body && typeof req.body.operationName === 'string') {
     return req.body.operationName
   }
+
+  if (req.originalUrl.endsWith('graphql') && 'query' in req.body && typeof req.body.query === 'string') {
+    const query = req.body.query as string
+    const match = query.match(/\s*(query|mutation)\s+(\w+)/)
+    return match ? match[2] : undefined
+  }
+
   return undefined
 }
 
