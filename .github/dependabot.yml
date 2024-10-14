@@ -1,4 +1,10 @@
 version: 2
+registries:
+  artifact-registry:
+    type: npm-registry
+    url: https://europe-west1-npm.pkg.dev/join-dev-330413/join/
+    username: ${{ secrets.GAR_USERNAME }}
+    password: ${{ secrets.GAR_CREDENTIALS }}
 updates:
   - package-ecosystem: 'npm'
     directory: '/'
@@ -7,6 +13,8 @@ updates:
     allow:
       - dependency-type: 'production'
     rebase-strategy: 'disabled'
+    registries:
+      - artifact-registry
     commit-message:
       prefix: "build"
       include: "scope"
