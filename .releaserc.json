@@ -7,9 +7,9 @@
     [
       "@semantic-release/commit-analyzer",
       {
-        "preset": "conventionalcommits",
+        "preset": "angular",
         "releaseRules": [
-          { "type": "build", "release": "patch" }
+          { "type": "build", "scope": "deps", "release": "patch" }
         ]
       }
     ],
