@@ -19,8 +19,11 @@
     "node": ">=20.8.1"
   },
   "devDependencies": {
-    "conventional-changelog-conventionalcommits": "^8.0.0",
-    "semantic-release": "^24.1.2",
-    "semantic-release-monorepo": "^8.0.2"
+    "conventional-changelog-conventionalcommits": "^5.0.0",
+    "semantic-release": "^19.0.3",
+    "semantic-release-monorepo": "^7.0.5"
+  },
+  "resolutions": {
+    "@semantic-release/npm": "8.0.3"
   }
 }
