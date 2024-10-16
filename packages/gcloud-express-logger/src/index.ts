@@ -20,7 +20,7 @@ const requestLogMessage = (req: Request, res: Response, ms: number) => ({
 })
 
 const requestOperationName = (req: Request): string | undefined => {
-  if ('operationName' in req.body && typeof req.body.operationName === 'string') {
+  if (req.body && 'operationName' in req.body && typeof req.body.operationName === 'string') {
     return req.body.operationName
   }
 
