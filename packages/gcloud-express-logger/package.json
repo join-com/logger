@@ -17,7 +17,7 @@
     "typescript"
   ],
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=16.0.0"
   },
   "scripts": {
     "build": "tsc -p tsconfig.prod.json",
@@ -25,7 +25,8 @@
     "lint:eslint": "eslint . --ext .ts --max-warnings 0",
     "lint:tsc": "tsc --noEmit",
     "prepublishOnly": "yarn lint && yarn build",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "yarn test --watch"
   },
   "dependencies": {
     "on-finished": "^2.4.1"

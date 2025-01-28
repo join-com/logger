@@ -22,6 +22,7 @@ describe('requestLogger', () => {
         .set('transaction-name', 'PublishJob')
         .set('user-agent', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 ...')
         .set('referer', 'https://join.com/dashboard')
+        .set('partner-id', 'actual-partner-id')
         .send(body)
         .expect(201)
 
@@ -38,6 +39,7 @@ describe('requestLogger', () => {
           latency: expect.stringMatching(/\d+\.\d+ms/),
           remoteIp: expect.any(String),
         }),
+        partner: 'actual-partner-id',
         requestTime: expect.any(Number),
         reqBody: body,
         query: {},
