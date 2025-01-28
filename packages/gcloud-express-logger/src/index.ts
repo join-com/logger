@@ -40,14 +40,15 @@ export interface IGcloudLogger {
 }
 
 export const requestLogger =
-  (logger: IGcloudLogger) =>
+  (logger: IGcloudLogger, logExtraFields?: (req: Request) => Record<string, unknown>) =>
   (req: Request, res: Response, next: NextFunction): void => {
     const startTime = process.hrtime()
 
     const logRequest = () => {
       const diff = process.hrtime(startTime)
       const ms = diff[0] * 1e3 + diff[1] * 1e-6
-      const payload = requestLogMessage(req, res, ms)
+      const extraFields = logExtraFields ? logExtraFields(req) : {}
+      const payload = { ...requestLogMessage(req, res, ms), ...extraFields }
       const operationName = requestOperationName(req)
       const message = operationName ? `${req.originalUrl} ${operationName}` : req.originalUrl
 

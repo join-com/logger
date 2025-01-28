@@ -1,25 +1,29 @@
 import bodyParser from 'body-parser'
-import express, { Application } from 'express'
+import express, { Application, Request, Router, Response } from 'express'
 import { IGcloudLogger, requestLogger } from '../../'
 
-const jobsRouter = express.Router()
+const jobsRouter = Router()
 jobsRouter.post('/jobs', (_req, res) => {
   res.status(201).send('OK')
 })
 
-const companiesRouter = express.Router()
+const companiesRouter = Router()
 jobsRouter.post('/companies', (_req, res) => {
   res.status(201).send('OK')
 })
 
-const graphqlHandler = (_req: express.Request, res: express.Response) => {
+const graphqlHandler = (_req: Request, res: Response) => {
   res.status(200).send('OK')
+}
+
+const logExtraFields = (req: Request) => {
+  return req.headers['partner-id'] ? { partner: req.headers['partner-id'] } : {}
 }
 
 export const createApp = (logger: IGcloudLogger): Application => {
   const app = express()
 
-  app.use(requestLogger(logger))
+  app.use(requestLogger(logger, logExtraFields))
   app.use(bodyParser.json())
 
   const restRouter = express.Router()
