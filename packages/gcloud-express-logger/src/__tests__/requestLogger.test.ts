@@ -40,6 +40,7 @@ describe('requestLogger', () => {
           remoteIp: expect.any(String),
         }),
         partner: 'actual-partner-id',
+        'response-header': 'actual-response-header',
         requestTime: expect.any(Number),
         reqBody: body,
         query: {},
@@ -67,6 +68,7 @@ describe('requestLogger', () => {
         requestTime: expect.any(Number),
         reqBody: { query },
         query: {},
+        'response-header': 'actual-response-header',
       })
     })
 

@@ -4,20 +4,33 @@ import { IGcloudLogger, requestLogger } from '../../'
 
 const jobsRouter = Router()
 jobsRouter.post('/jobs', (_req, res) => {
+  res.setHeader('x-response-header', 'actual-response-header')
   res.status(201).send('OK')
 })
 
 const companiesRouter = Router()
 jobsRouter.post('/companies', (_req, res) => {
+  res.setHeader('x-response-header', 'actual-response-header')
   res.status(201).send('OK')
 })
 
 const graphqlHandler = (_req: Request, res: Response) => {
+  res.setHeader('x-response-header', 'actual-response-header')
   res.status(200).send('OK')
 }
 
-const logExtraFields = (req: Request) => {
-  return req.headers['partner-id'] ? { partner: req.headers['partner-id'] } : {}
+const logExtraFields = (req: Request, res: Response) => {
+  const extraFields: Record<string, string | string[] | undefined | number> = {}
+
+  if (req.headers['partner-id']) {
+    extraFields['partner'] = req.headers['partner-id']
+  }
+
+  if (res.getHeaders()['x-response-header']) {
+    extraFields['response-header'] = res.getHeaders()['x-response-header']
+  }
+
+  return extraFields
 }
 
 export const createApp = (logger: IGcloudLogger): Application => {
