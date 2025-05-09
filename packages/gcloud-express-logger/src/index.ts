@@ -50,7 +50,10 @@ export const requestLogger =
       const extraFields = logExtraFields ? logExtraFields(req, res) : {}
       const payload = { ...requestLogMessage(req, res, ms), ...extraFields }
       const operationName = requestOperationName(req)
-      const message = operationName ? `${req.originalUrl} ${operationName}` : req.originalUrl
+      const message =
+        operationName && !req.originalUrl.includes(operationName)
+          ? `${req.originalUrl} ${operationName}`
+          : req.originalUrl
 
       if (res.statusCode >= 500) {
         logger.error(message, payload)
