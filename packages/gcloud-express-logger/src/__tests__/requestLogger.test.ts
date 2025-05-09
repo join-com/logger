@@ -80,6 +80,14 @@ describe('requestLogger', () => {
       expect(loggerMock.info).toHaveBeenCalledWith(`/graphql ${operationName}`, expect.any(Object))
     })
 
+    it('ignores operation name if already in url', async () => {
+      const operationName = 'ListCompaniesOperation'
+
+      await request(app).post(`/graphql?operationName=${operationName}`).send({ query, operationName }).expect(200)
+
+      expect(loggerMock.info).toHaveBeenCalledWith(`/graphql?operationName=${operationName}`, expect.any(Object))
+    })
+
     it('logs mutation name', async () => {
       const query = `
         mutation RegisterCompany {
