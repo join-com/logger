@@ -36,7 +36,7 @@ const logExtraFields = (req: Request, res: Response) => {
 export const createApp = (logger: IGcloudLogger): Application => {
   const app = express()
 
-  app.use(requestLogger(logger, logExtraFields))
+  app.use(requestLogger(logger, { logExtraFields, extractOperationName: true }))
   app.use(bodyParser.json())
 
   const restRouter = express.Router()
